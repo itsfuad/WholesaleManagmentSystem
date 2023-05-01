@@ -15,7 +15,7 @@ public class signUpPage extends JFrame implements ActionListener {
     private JTextField usernameField, nameField, addressField, phoneField, emailField, entityNameField,
             entityAddressField, entityPhoneField, entityEmailField, entityLicenseField;
     private JPasswordField passwordField;
-    private JButton nexButton, merchantButton, manufacturerButton, cancelButton;
+    private JButton nexButton, previousButton, merchantButton, manufacturerButton, cancelButton;
     private JPanel panel1, panel2, panel3, panel4;
     private String username, password, fullName, ownerAddress, ownerPhone, ownerEmail, accountType, entityName,
             entityAddress, entityPhone, entityEmail, entityLicense;
@@ -63,6 +63,8 @@ public class signUpPage extends JFrame implements ActionListener {
         entityLicenseField = new JTextField(20);
         nexButton = new JButton();
         nexButton.addActionListener(this);
+        previousButton = new JButton();
+        previousButton.addActionListener(this);
         cancelButton = new JButton();
         cancelButton.addActionListener(this);
     }
@@ -96,6 +98,13 @@ public class signUpPage extends JFrame implements ActionListener {
         manufacturerButton.setBounds(400, 200, 100, 25);
         manufacturerButton.addActionListener(this);
         panel1.add(manufacturerButton);
+        
+        if (panel2 != null) {
+            panel2.setVisible(false);
+            this.remove(panel2);
+            System.out.println("removed panel2");
+        }
+
 
         this.add(panel1);
     }
@@ -144,11 +153,28 @@ public class signUpPage extends JFrame implements ActionListener {
         emailField.setBounds(350, 250, 160, 25);
         panel2.add(emailField);
 
+        previousButton.setText("Previous");
+        previousButton.setBounds(260, 300, 100, 25);
+        panel2.add(previousButton);
+
         nexButton.setText("Next");
-        nexButton.setBounds(260, 300, 100, 25);
+        nexButton.setBounds(400, 300, 100, 25);
         panel2.add(nexButton);
 
-        this.remove(panel1);
+
+
+        if (panel1 != null) {
+            panel1.setVisible(false);
+            this.remove(panel1);
+            System.out.println("removed panel1");
+        }
+
+        if (panel3 != null) {
+            panel3.setVisible(false);
+            this.remove(panel3);
+            System.out.println("removed panel3");
+        }
+
         this.add(panel2);
     }
 
@@ -160,108 +186,100 @@ public class signUpPage extends JFrame implements ActionListener {
 
         step = 3;
 
+        panel3 = new JPanel();
+        panel3.setLayout(null);
+        panel3.setSize(800, 450);
+
+        stepCount.setBounds(10, 10, 80, 25);
+        panel3.add(stepCount);
+
+        entityNameLabel.setBounds(260, 50, 80, 25);
+        panel3.add(entityNameLabel);
+
+        entityNameField.setBounds(350, 50, 160, 25);
+        panel3.add(entityNameField);
+        entityAddressLabel.setBounds(260, 100, 80, 25);
+        panel3.add(entityAddressLabel);
+        entityAddressField.setBounds(350, 100, 160, 25);
+        panel3.add(entityAddressField);
+        entityPhoneLabel.setBounds(260, 150, 80, 25);
+        panel3.add(entityPhoneLabel);
+        entityPhoneField.setBounds(350, 150, 160, 25);
+        panel3.add(entityPhoneField);
+        entityEmailLabel.setBounds(260, 200, 80, 25);
+        panel3.add(entityEmailLabel);
+        entityEmailField.setBounds(350, 200, 160, 25);
+        panel3.add(entityEmailField);
+        entityLicenseLabel.setBounds(260, 250, 80, 25);
+        panel3.add(entityLicenseLabel);
+        entityLicenseField.setBounds(350, 250, 160, 25);
+        panel3.add(entityLicenseField);
+        previousButton.setBounds(260, 300, 100, 25);
+        panel3.add(previousButton);
+        nexButton.setBounds(400, 300, 100, 25);
+        panel3.add(nexButton);
         if (accountType.equals("Manufacturer")) {
 
-            panel3 = new JPanel();
-            panel3.setLayout(null);
-            panel3.setSize(800, 450);
-
             stepCount.setText("Step 3/4");
-            stepCount.setBounds(10, 10, 80, 25);
-            panel3.add(stepCount);
 
             entityNameLabel.setText("Company Name");
-            entityNameLabel.setBounds(260, 50, 80, 25);
-            panel3.add(entityNameLabel);
-
-            entityNameField.setBounds(350, 50, 160, 25);
-            panel3.add(entityNameField);
 
             entityAddressLabel.setText("Company Address");
-            entityAddressLabel.setBounds(260, 100, 80, 25);
-            panel3.add(entityAddressLabel);
-
-            entityAddressField.setBounds(350, 100, 160, 25);
-            panel3.add(entityAddressField);
 
             entityPhoneLabel.setText("Company Phone");
-            entityPhoneLabel.setBounds(260, 150, 80, 25);
-            panel3.add(entityPhoneLabel);
-
-            entityPhoneField.setBounds(350, 150, 160, 25);
-            panel3.add(entityPhoneField);
 
             entityEmailLabel.setText("Company Email");
-            entityEmailLabel.setBounds(260, 200, 80, 25);
-            panel3.add(entityEmailLabel);
-
-            entityEmailField.setBounds(350, 200, 160, 25);
-            panel3.add(entityEmailField);
 
             entityLicenseLabel.setText("Company License");
-            entityLicenseLabel.setBounds(260, 250, 80, 25);
-            panel3.add(entityLicenseLabel);
 
-            entityLicenseField.setBounds(350, 250, 160, 25);
-            panel3.add(entityLicenseField);
+            previousButton.setText("Previous");
 
             nexButton.setText("Next");
-            nexButton.setBounds(260, 300, 100, 25);
-            panel3.add(nexButton);
-
-            this.remove(panel2);
+        
+            if (panel2 != null) {
+                panel2.setVisible(false);
+                this.remove(panel2);
+                System.out.println("removed panel2");
+            }
+    
+            if (panel4 != null) {
+                panel4.setVisible(false);
+                this.remove(panel4);
+                System.out.println("removed panel4");
+            }
+    
             this.add(panel3);
-
+            
         } else if (accountType.equals("Merchant")) {
 
-            panel3 = new JPanel();
-            panel3.setLayout(null);
-            panel3.setSize(800, 450);
-
             stepCount.setText("Step 3/4");
-            stepCount.setBounds(10, 10, 80, 25);
-            panel3.add(stepCount);
 
             entityNameLabel.setText("Shop Name");
-            entityNameLabel.setBounds(260, 50, 80, 25);
-            panel3.add(entityNameLabel);
-
-            entityNameField.setBounds(350, 50, 160, 25);
-            panel3.add(entityNameField);
 
             entityAddressLabel.setText("Shop Address");
-            entityAddressLabel.setBounds(260, 100, 80, 25);
-            panel3.add(entityAddressLabel);
-
-            entityAddressField.setBounds(350, 100, 160, 25);
-            panel3.add(entityAddressField);
 
             entityPhoneLabel.setText("Shop Phone");
-            entityPhoneLabel.setBounds(260, 150, 80, 25);
-            panel3.add(entityPhoneLabel);
-
-            entityPhoneField.setBounds(350, 150, 160, 25);
-            panel3.add(entityPhoneField);
 
             entityEmailLabel.setText("Shop Email");
-            entityEmailLabel.setBounds(260, 200, 80, 25);
-            panel3.add(entityEmailLabel);
-
-            entityEmailField.setBounds(350, 200, 160, 25);
-            panel3.add(entityEmailField);
 
             entityLicenseLabel.setText("Shop License");
-            entityLicenseLabel.setBounds(260, 250, 80, 25);
-            panel3.add(entityLicenseLabel);
 
-            entityLicenseField.setBounds(350, 250, 160, 25);
-            panel3.add(entityLicenseField);
+            previousButton.setText("Previous");
 
             nexButton.setText("Next");
-            nexButton.setBounds(260, 300, 100, 25);
-            panel3.add(nexButton);
 
-            this.remove(panel2);
+            if (panel2 != null) {
+                panel2.setVisible(false);
+                this.remove(panel2);
+                System.out.println("removed panel2");
+            }
+    
+            if (panel4 != null) {
+                panel4.setVisible(false);
+                this.remove(panel4);
+                System.out.println("removed panel4");
+            }
+    
             this.add(panel3);
 
         } else {
@@ -274,7 +292,7 @@ public class signUpPage extends JFrame implements ActionListener {
      * Takes the Username and Password from the user
      */
     private void showStep4() {
-
+        
         step = 4;
 
         panel4 = new JPanel();
@@ -301,6 +319,10 @@ public class signUpPage extends JFrame implements ActionListener {
         passwordField.setBounds(350, 200, 160, 25);
         panel4.add(passwordField);
 
+        previousButton.setText("Previous");
+        previousButton.setBounds(120, 250, 100, 25);
+        panel4.add(previousButton);
+
         nexButton.setText("Finish");
         nexButton.setBounds(260, 250, 100, 25);
         panel4.add(nexButton);
@@ -309,7 +331,12 @@ public class signUpPage extends JFrame implements ActionListener {
         cancelButton.setBounds(400, 250, 100, 25);
         panel4.add(cancelButton);
 
-        this.remove(panel3);
+        if (panel3 != null) {
+            panel3.setVisible(false);
+            this.remove(panel3);
+            System.out.println("removed panel3");
+        }
+
         this.add(panel4);
     }
 
@@ -388,6 +415,14 @@ public class signUpPage extends JFrame implements ActionListener {
                 new loginPage();
             }
 
+        }else if (e.getSource() == previousButton){
+            if (step == 2){
+                showStep1();
+            }else if (step == 3){
+                showStep2();
+            }else if (step == 4){
+                showStep3();
+            }
         } else if (e.getSource() == merchantButton) {
             accountType = "Merchant";
             panel1.setVisible(false);
