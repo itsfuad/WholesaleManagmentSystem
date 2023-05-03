@@ -7,7 +7,7 @@ public class Main{
         database checkpoint = new database("loggedIn.txt");
             
         if (checkpoint.isEmpty()){
-            new loginPage();
+            new defaultPage();
         }else{
             String value = checkpoint.getData().get(0);
             
@@ -22,7 +22,7 @@ public class Main{
                     new manufacturerPage();
                 }
             }else{
-                new loginPage();
+                new defaultPage();
             }
         }
     }

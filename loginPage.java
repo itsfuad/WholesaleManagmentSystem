@@ -3,6 +3,7 @@ import java.util.*;
 import java.io.*;
 import javax.swing.*;
 
+import utils.components;
 import utils.validator;
 
 import java.awt.*;
@@ -12,7 +13,7 @@ public class loginPage extends JFrame implements ActionListener {
     private JLabel userLabel, passLabel;
     private JTextField userField;
     private JPasswordField passField;
-    private JButton loginButton, registerButton;
+    private JButton loginButton;
     private JPanel panel;
     private String username, password;
 
@@ -24,25 +25,30 @@ public class loginPage extends JFrame implements ActionListener {
         // disable maximize button and resizable window
         setResizable(false);
         setExtendedState(JFrame.MAXIMIZED_HORIZ);
-
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
         panel = new JPanel();
         panel.setLayout(null);
-
+        
         panel.setSize(800, 450);
-        panel.setLayout(null);
+        panel.setBackground(new Color(123, 182, 248));
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        userLabel = new JLabel("User");
+        userLabel = new JLabel("Username");
         userLabel.setBounds(260, 150, 80, 25);
+        userLabel.setForeground(Color.WHITE);
+        userLabel.setFont(components.font);
         panel.add(userLabel);
 
         userField = new JTextField(20);
         userField.setBounds(350, 150, 160, 25);
+        userField.setBackground(getBackground());
+        userField.setOpaque(true);
+        userField.setFont(components.font);
         panel.add(userField);
 
         passLabel = new JLabel("Password");
-        passLabel.setBounds(260, 200, 80, 25);
+        passLabel.setBounds(260, 200, 80, 50);
         panel.add(passLabel);
 
         passField = new JPasswordField(20);
@@ -54,11 +60,6 @@ public class loginPage extends JFrame implements ActionListener {
         loginButton.addActionListener(this);
         panel.add(loginButton);
 
-        registerButton = new JButton("Sign Up");
-        registerButton.setBounds(400, 250, 100, 25);
-        registerButton.addActionListener(this);
-        panel.add(registerButton);
-
         this.add(panel);
 
         setVisible(true);
@@ -66,6 +67,7 @@ public class loginPage extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginButton) {
+            
             username = userField.getText();
             password = passField.getText();
 
@@ -90,9 +92,6 @@ public class loginPage extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(this, "Username or password is incorrect");
                 }
             }
-        } else {
-            this.dispose();
-            new signUpPage();
         }
     }
 }

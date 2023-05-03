@@ -7,7 +7,8 @@ import javax.swing.*;
 import utils.validator;
 
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class signUpPage extends JFrame implements ActionListener {
     private JLabel usernameLabel, passwordLabel, nameLabel, addressLabel, phoneLabel, emailLabel, stepCount,

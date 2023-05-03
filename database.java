@@ -23,7 +23,7 @@ public class database {
             }
             br.close();
         } catch (IOException e) {
-            System.out.println("Error reading file");
+            System.out.println("Error reading file" + e.toString());
         }
     }
 
@@ -92,22 +92,28 @@ public class database {
         return this.data.isEmpty();
     }
 
-    public boolean match(String key) {
 
+    /**
+     * Matches all the queries and returns true if all queries are true. 
+     * Example,
+     * match("username=user1,address=dhaka") returns true if both values are present in the database
+     * @param Query The Query string
+     * @return true or false
+     */
+    public boolean match(String query) {
         read();
+    
+        String[] queries = query.split(",");
 
-        String[] queries = key.split(",");
-        String[] lines = new String[this.data.size()];
-        this.data.toArray(lines);
-
-        int yetToMatch = queries.length;
-        int matched = 0;
-
-        for (int i = 0; i < lines.length; i++){
-            String[] lineParts = lines[i].split(",");
+        final int yetToMatch = queries.length;
+        
+        for (int i = 0; i < data.size(); i++){
+            int matched = 0;
+            String[] queryStrings = data.get(i).split(",");
             for (int j = 0; j < queries.length; j++){
-                for (int k = 0; k < lineParts.length; k++){
-                    if (lineParts[k].equals(queries[j])){
+                for (int k = 0; k < queryStrings.length; k++){
+                    //System.out.println(queryStrings[k] + " = " + queries[j] + " " + matched + " " + yetToMatch);
+                    if (queryStrings[k].equals(queries[j])){
                         matched++;
                         if (matched == yetToMatch){
                             return true;
@@ -116,11 +122,18 @@ public class database {
                 }
             }
         }
-        return matched == yetToMatch;
+
+        return false;
+
     }
 
-    public String getQueryResult(String userID, String Key){
-        //search the database for the key and return the value
+    /**
+     * Searches the database for the QueryKey and returns the value
+     * @param PrimaryKey The cell's unique identifier or the 1st Key on which line the operation will be performed on
+     * @param QueryKey The query key which's value will be returned
+     * @return The query result
+     */
+    public String getQueryResult(String PrimaryKey, String QueryKey){
         read();
 
         String[] lines = new String[this.data.size()];
@@ -134,7 +147,7 @@ public class database {
                 continue;
             }
             String[] lineParts = lines[i].split(",");
-            if (lineParts[0].split("=")[1].equals(userID)){
+            if (lineParts[0].split("=")[1].equals(PrimaryKey)){
                 lineNum = i;
             }
         }
@@ -146,7 +159,7 @@ public class database {
         String[] linePartsArr = lines[lineNum].split(",");
         for (int i = 0; i < linePartsArr.length; i++){
             String[] parts = linePartsArr[i].split("=");
-            if (parts[0].equals(Key)){
+            if (parts[0].equals(QueryKey)){
                 return parts[1];
             }
         }
