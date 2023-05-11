@@ -167,4 +167,57 @@ public class database {
         return "";
     }
 
+    /**
+     * 
+     * @param PrimaryKey The cell's unique identifier or the 1st Key on which line the operation will be performed on
+     * @param QueryKey The query key which's value will be updated
+     * @param QueryValue The new value
+     */
+    public void update(String PrimaryKey, String QueryKey, String QueryValue){
+        read();
+
+        String[] lines = new String[this.data.size()];
+        this.data.toArray(lines);
+
+        
+        //get which line the user is on
+        int lineNum = -1;
+        for (int i = 0; i < lines.length; i++){
+            if (lines[i].equals("")){
+                continue;
+            }
+            String[] lineParts = lines[i].split(",");
+            if (lineParts[0].split("=")[1].equals(PrimaryKey)){
+                lineNum = i;
+            }
+        }
+
+        if (lineNum == -1){
+            return;
+        }
+
+        String[] linePartsArr = lines[lineNum].split(",");
+        for (int i = 0; i < linePartsArr.length; i++){
+            String[] parts = linePartsArr[i].split("=");
+            if (parts[0].equals(QueryKey)){
+                linePartsArr[i] = QueryKey + "=" + QueryValue;
+            }
+        }
+
+        String newLine = "";
+        for (int i = 0; i < linePartsArr.length; i++){
+            newLine += linePartsArr[i] + ",";
+        }
+        newLine = newLine.substring(0, newLine.length() - 1);
+
+        lines[lineNum] = newLine;
+
+        this.data.clear();
+        for (int i = 0; i < lines.length; i++){
+            this.data.add(lines[i]);
+        }
+
+        write();
+    }
+
 }
