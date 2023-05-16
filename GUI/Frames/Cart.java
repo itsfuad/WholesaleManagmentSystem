@@ -92,8 +92,8 @@ public class Cart {
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow != -1) {
                     DefaultTableModel model = (DefaultTableModel) table.getModel();
-                    Integer quantityInteger = (Integer) model.getValueAt(selectedRow, 3);
-                    quantityString = quantityInteger.toString();
+                    int quantityInteger = Integer.parseInt(model.getValueAt(selectedRow, 3).toString());
+                    quantityString = Integer.toString(quantityInteger);
                     if (quantityString != null && !quantityString.isEmpty()) {
                         quantity = Integer.parseInt(quantityString);
                         if (quantity > 1) {
