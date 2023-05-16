@@ -66,12 +66,23 @@ public class Database {
     }
 
     public void remove(String line) {
+        read();
         if (this.data.contains(line)) {
             this.data.clear();
-            read();
             this.data.remove(line);
             write();
         }
+    }
+
+    public void removeProduct(String productId) {
+        read();
+        for (String line : this.data) {
+            if (line.contains(productId)) {
+                this.data.remove(line);
+                break;
+            }
+        }
+        write();
     }
 
     public void clear() {

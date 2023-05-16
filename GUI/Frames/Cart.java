@@ -56,8 +56,13 @@ public class Cart {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int selectedRow = table.getSelectedRow();
+                if (selectedRow == 0){
+                    return;
+                }
                 if (selectedRow != -1) {
                     DefaultTableModel model = (DefaultTableModel) table.getModel();
+                    String productId = model.getValueAt(selectedRow, 0).toString();
+                    deleteProduct(productId);
                     model.removeRow(selectedRow);
                 }
             }
@@ -70,6 +75,9 @@ public class Cart {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int selectedRow = table.getSelectedRow();
+                if (selectedRow == 0){
+                    return;
+                }
                 if (selectedRow != -1) {
                     DefaultTableModel model = (DefaultTableModel) table.getModel();
                     int quantityInteger = Integer.parseInt(model.getValueAt(selectedRow, 3).toString());
@@ -90,6 +98,9 @@ public class Cart {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int selectedRow = table.getSelectedRow();
+                if (selectedRow == 0){
+                    return;
+                }
                 if (selectedRow != -1) {
                     DefaultTableModel model = (DefaultTableModel) table.getModel();
                     int quantityInteger = Integer.parseInt(model.getValueAt(selectedRow, 3).toString());
@@ -103,6 +114,7 @@ public class Cart {
                 }
             }
         });
+
         jpanel.add(subtractButton);
 
         // Get cart products from the Database
@@ -163,6 +175,12 @@ public class Cart {
         jframe.setBounds(0, 0, 1016, 637);
         jframe.setLocationRelativeTo(null);
         jframe.setVisible(true);
+    }
+
+    public void deleteProduct(String productId){
+        Database db = new Database("cart.txt");
+        System.out.println("Product ID: " + productId + " has been deleted from the cart.");
+        db.removeProduct(productId);
     }
 
     public void updateCart() {
