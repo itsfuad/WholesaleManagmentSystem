@@ -1,54 +1,37 @@
-import java.util.*;
-
-import javax.swing.JOptionPane;
-
-import utils.*;
+import Database.*;
+import GUI.Checkpoint.*;
+import GUI.Frames.*;
 
 public class Main{
-    public static void main(String[] args){ 
+
+    public static String USERNAME;
+
+    public static void main(String[] args){
         System.out.println("Welcome to Wholesale Management System");
 
-        database checkpoint = new database("loggedIn.txt");
+        Database checkpoint = new Database("loggedIn.txt");
 
-        database db1 = new database("users.txt");
+        USERNAME = checkpoint.get();
 
-        String prev = db1.getQueryResult("itsfuad", "password");
-
-        
-        if (prev.equals("12345qwert")){
-            String curr = "sexyNahin1";
-
-            if (new validator().validatePassword(curr) == false){
-                return;
-            }
-
-            JOptionPane.showMessageDialog(null, "Password changed successfully");
-
-            db1.update("itsfuad", "password", curr);
-        }else{
-            System.out.println("Password incorrect");
-            return; 
+        if (USERNAME.equals("")){
+            System.out.println("No user logged in");
+            new DefaultPage();
+            return;
         }
 
-            
-        if (checkpoint.isEmpty()){
-            new defaultPage();
-        }else{
-            String value = checkpoint.getData().get(0);
-            
-            database db = new database("users.txt");
-            String ret = db.getQueryResult(value, "username");
+        System.out.println("Verifying user: " + USERNAME);
 
-            if (!ret.equals("")){
-                String type = db.getQueryResult(value, "accountType");
-                if (type.equals("Merchant")){
-                    new merchantPage(value);
-                }else if (type.equals("Manufacturer")){
-                    new manufacturerPage();
-                }
-            }else{
-                new defaultPage();
-            }
+        Database db = new Database("users.txt");
+
+        String ret = db.getQueryResult(USERNAME, "username");
+
+        System.out.println("Found user: " + ret);
+
+        if (!ret.equals("")){
+            System.out.println("Logged in as: " + USERNAME);
+            new Menu();
+        }else{
+            new DefaultPage();
         }
     }
 }
