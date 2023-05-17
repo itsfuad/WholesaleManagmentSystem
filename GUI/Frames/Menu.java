@@ -3,22 +3,66 @@ package GUI.Frames;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import src.*;
+
 public class Menu extends JFrame {
 
-    protected JPanel jpanel;
+    protected JPanel mainPanel;
     protected JLabel backgroundImageLabel, shoppingButtonLabel, cartButtonLabel, purchaseHistoryButtonLabel, servicingButtonLabel, changePasswordButtonLabel, jlabelsignout;
 
+    protected JLabel avatarIconLabel, usernameLabel;
 
     public Menu() {
 
         setTitle("Menu");
         setSize(new Dimension(1016,638));
-        jpanel=new JPanel();
+        mainPanel =new JPanel();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        getContentPane().add(jpanel);
-        jpanel.setLayout(null);
+        mainPanel.setLayout(null);
         setResizable(false);
         setExtendedState(MAXIMIZED_HORIZ);
+
+        //setIcon
+        ImageIcon icon = new ImageIcon("res\\icon.png");
+        setIconImage(icon.getImage());
+
+        //set infoContainer
+
+        //set avatar image icon
+        ImageIcon avatarIcon = new ImageIcon("res\\avatarIcon.png");
+        avatarIconLabel = new JLabel();
+        avatarIconLabel.setIcon(avatarIcon);
+        avatarIconLabel.setBounds(50, 60, 60, 60);
+        avatarIconLabel.setVisible(true);
+        mainPanel.add(avatarIconLabel);
+
+        //set username
+        usernameLabel = new JLabel("Welcome, " + Main.fullName);
+        usernameLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+        //dark blue green color
+        usernameLabel.setForeground(new Color(0, 128, 128));
+        usernameLabel.setBounds(120, 60, 400, 60);
+        usernameLabel.setVisible(true);
+        mainPanel.add(usernameLabel);
+
+        //action listener for avatarIconLabel
+        avatarIconLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                dispose();
+                //new editAccount();
+                System.out.println("edit account");
+                new ChangeInfo();
+            }
+            //show tooltip on hover
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                avatarIconLabel.setToolTipText("Edit Account");
+            }
+
+        });
+
+        getContentPane().add(mainPanel);
 
 
         shoppingButtonLabel = new JLabel("");
@@ -42,7 +86,7 @@ public class Menu extends JFrame {
             }
         });
         shoppingButtonLabel.setBounds(557, 138, 341, 60);
-        jpanel.add(shoppingButtonLabel);
+        mainPanel.add(shoppingButtonLabel);
 
         cartButtonLabel = new JLabel("");
         cartButtonLabel.addMouseListener(new MouseAdapter() {
@@ -65,7 +109,7 @@ public class Menu extends JFrame {
             }
         });
         cartButtonLabel.setBounds(613, 233, 347, 60);
-        jpanel.add(cartButtonLabel);
+        mainPanel.add(cartButtonLabel);
 
         purchaseHistoryButtonLabel = new JLabel("");
         purchaseHistoryButtonLabel.addMouseListener(new MouseAdapter() {
@@ -88,7 +132,7 @@ public class Menu extends JFrame {
             }
         });
         purchaseHistoryButtonLabel.setBounds(533, 316, 341, 60);
-        jpanel.add(purchaseHistoryButtonLabel);
+        mainPanel.add(purchaseHistoryButtonLabel);
 
         servicingButtonLabel = new JLabel("");
         servicingButtonLabel.addMouseListener(new MouseAdapter() {
@@ -111,7 +155,7 @@ public class Menu extends JFrame {
             }
         });
         servicingButtonLabel.setBounds(347, 471, 347, 60);
-        jpanel.add(servicingButtonLabel);
+        mainPanel.add(servicingButtonLabel);
 
         changePasswordButtonLabel = new JLabel("");
         changePasswordButtonLabel.addMouseListener(new MouseAdapter() {
@@ -135,13 +179,16 @@ public class Menu extends JFrame {
         });
 
         changePasswordButtonLabel.setBounds(446, 397, 347, 60);
-        jpanel.add(changePasswordButtonLabel);
+        mainPanel.add(changePasswordButtonLabel);
+
 
         backgroundImageLabel =new JLabel();
         backgroundImageLabel.setLocation(0, 0);
         backgroundImageLabel.setSize(1000, 600);
         backgroundImageLabel.setIcon(new ImageIcon("res\\Menu.png"));
-        jpanel.add(backgroundImageLabel);
+        mainPanel.add(backgroundImageLabel);
+
+
         setBounds(0,0,1016,637);
         setLocationRelativeTo(null);
         setVisible(true);

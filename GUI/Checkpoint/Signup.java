@@ -9,7 +9,7 @@ import Validator.*;
 import Database.*;
 
 
-public class Signup implements MouseListener {
+public class Signup extends JFrame implements MouseListener {
 
     protected JFrame jframe;
     protected JLabel backgroundImageLabel, usernameLabel, userAddressLabel, userPhoneNumberLabel, shopNameLabel, shopAddressLabel, shopPhoneNumberLabel, userIdLabel,
@@ -23,16 +23,19 @@ public class Signup implements MouseListener {
     private int step = 1;
 
     Signup() {
-        jframe = new JFrame();
-        jframe.setTitle("SignUp");
-        jframe.setSize(new Dimension(1016, 638));
-        jframe.setLocationRelativeTo(null);
-        jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        jframe.getContentPane();
-        jframe.setResizable(false);
-        jframe.setExtendedState(JFrame.MAXIMIZED_HORIZ);
-        jframe.setLocationRelativeTo(null);
-        jframe.setVisible(true);
+        setTitle("SignUp");
+        setSize(new Dimension(1016, 638));
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        getContentPane();
+        setResizable(false);
+        setExtendedState(JFrame.MAXIMIZED_HORIZ);
+        setLocationRelativeTo(null);
+        setVisible(true);
+
+        //setIcon
+        ImageIcon icon = new ImageIcon("res\\icon.png");
+        setIconImage(icon.getImage());
 
         showStep1();
     }
@@ -105,17 +108,17 @@ public class Signup implements MouseListener {
         backgroundImageLabel.setSize(1000, 600);
         backgroundImageLabel.setIcon(new ImageIcon("res\\SignUp1.png"));
         jpanel1.add(backgroundImageLabel);
-        jframe.setBounds(0, 0, 1016, 637);
-        jframe.setLocationRelativeTo(null);
+        setBounds(0, 0, 1016, 637);
+        setLocationRelativeTo(null);
 
 
         if (jpanel2 != null) {
             jpanel2.setVisible(false);
-            jframe.remove(jpanel2);
+            remove(jpanel2);
             System.out.println("removed panel3");
         }
 
-        jframe.getContentPane().add(jpanel1);
+        getContentPane().add(jpanel1);
     }
 
     /**
@@ -186,21 +189,21 @@ public class Signup implements MouseListener {
         backgroundImageLabel.setSize(1000, 600);
         backgroundImageLabel.setIcon(new ImageIcon("res\\SignUp2.png"));
         jpanel2.add(backgroundImageLabel);
-        jframe.setBounds(0, 0, 1016, 637);
-        jframe.setLocationRelativeTo(null);
+        setBounds(0, 0, 1016, 637);
+        setLocationRelativeTo(null);
         if (jpanel1 != null) {
             jpanel1.setVisible(false);
-            jframe.remove(jpanel1);
+            remove(jpanel1);
             System.out.println("removed panel2");
         }
 
         if (jpanel3 != null) {
             jpanel3.setVisible(false);
-            jframe.remove(jpanel3);
+            remove(jpanel3);
             System.out.println("removed panel4");
         }
 
-        jframe.add(jpanel2);
+        add(jpanel2);
 
     }
 
@@ -272,22 +275,22 @@ public class Signup implements MouseListener {
         backgroundImageLabel.setSize(1000, 600);
         backgroundImageLabel.setIcon(new ImageIcon("res\\SignUp3.png"));
         jpanel3.add(backgroundImageLabel);
-        jframe.setBounds(0, 0, 1016, 637);
-        jframe.setLocationRelativeTo(null);
+        setBounds(0, 0, 1016, 637);
+        setLocationRelativeTo(null);
         System.out.println("figures");
         if (jpanel2 != null) {
             jpanel2.setVisible(false);
-            jframe.remove(jpanel2);
+            remove(jpanel2);
             System.out.println("removed panel3");
         }
 
         if (jpanel3 != null) {
             jpanel2.setVisible(false);
-            jframe.remove(jpanel2);
+            remove(jpanel2);
             System.out.println("removed panel3");
         }
 
-        jframe.add(jpanel3);
+        add(jpanel3);
     }
 
     public void showStep4() {
@@ -305,14 +308,14 @@ public class Signup implements MouseListener {
         backgroundImageLabel.setSize(1000, 600);
         backgroundImageLabel.setIcon(new ImageIcon("res\\SignUp4.png"));
         jpanel4.add(backgroundImageLabel);
-        jframe.setBounds(0, 0, 1016, 637);
-        jframe.setLocationRelativeTo(null);
+        setBounds(0, 0, 1016, 637);
+        setLocationRelativeTo(null);
 
         jpanel1.setVisible(false);
         jpanel2.setVisible(false);
         jpanel3.setVisible(false);
 
-        jframe.add(jpanel4);
+        add(jpanel4);
 
     }
 
@@ -398,14 +401,14 @@ public class Signup implements MouseListener {
                 // JOptionPane.showMessageDialog(jframe, "Account created successfully");
                 showStep4();
             } else if (step == 4) {
-                jframe.dispose();
+                dispose();
                 new Login();
             }
 
         } else if (e.getSource() == backButtonLabel) {
 
             if (step == 1) {
-                jframe.dispose();
+                dispose();
                 new Login();
             }else if (step == 2) {
                 showStep1();
