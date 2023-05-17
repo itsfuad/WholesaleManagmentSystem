@@ -38,7 +38,7 @@ public class Login {
             @Override
             public void mouseClicked(MouseEvent e) {
                 jframe.dispose();
-                //new SignUp();
+                new Signup();
             }
             @Override
             public void mouseEntered(MouseEvent e) {

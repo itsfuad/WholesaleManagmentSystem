@@ -17,7 +17,7 @@ public class Shopping extends JFrame {
 
     private JLabel jlabelsearch,cartButtonLabel,jlabelback,jlabelsignout;
     private JTextField jtextfield;
-    private JLabel backgroundImageLabel,addtocart;
+    private JLabel backgroundImageLabel,addtocart,productlabel;
     private JPanel mainPanel;
     private List<Rectangle> labelBounds;
     private String selected;
@@ -63,9 +63,13 @@ public class Shopping extends JFrame {
 			System.out.println("-------------------------------------------");
 		}
 		*/
-
+        productlabel=new JLabel(new ImageIcon("E:\\Git\\WholesaleManagmentSystem\\res\\productlabel.png"));
+        productlabel.setBounds(99,164, 140, 160);
+        mainPanel.add(productlabel);
+        productlabel.setVisible(false);
         for (int i = 0; i < 10; i++) {
             Rectangle bounds = new Rectangle(x, y, 140, 160);
+           
             labelBounds.add(bounds);
 
             JLabel label = new JLabel(products.get(i).productName);//fuad ekhane tui 10 ta Product er nam boshabi from Database
@@ -82,6 +86,17 @@ public class Shopping extends JFrame {
                     //selected="";//productid or Product name that was selected
                     //selected = products.get(i).productName + " | " + products.get(i).productPrice + " " + products.get(i).productQuantity;
                     selectedProduct = products.get(finalI);
+                }
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                	
+                	productlabel.setVisible(true);
+           
+                }
+                @Override
+                public void mouseExited(MouseEvent e) {
+                	productlabel.setVisible(false);
+              
                 }
             });
 
