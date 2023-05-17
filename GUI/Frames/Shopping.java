@@ -63,6 +63,7 @@ public class Shopping extends JFrame {
 			System.out.println("-------------------------------------------");
 		}
 		*/
+        
         productlabel=new JLabel(new ImageIcon("E:\\Git\\WholesaleManagmentSystem\\res\\productlabel.png"));
         productlabel.setBounds(99,164, 140, 160);
         mainPanel.add(productlabel);
