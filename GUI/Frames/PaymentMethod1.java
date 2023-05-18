@@ -36,8 +36,8 @@ public class PaymentMethod1 extends JFrame{
 		initializePaymentMethodComponents();
 
 		setLabel(mainPanel,"back","",42, 41, 60, 60);//back
-		setLabel(mainPanel,"cash on delivery","",325, 285, 152, 30);//cash on delivery
-		setLabel(mainPanel,"online payment","",525, 285, 152, 30);//online paymen
+		setLabel(mainPanel,"online payment","",325, 285, 152, 30);//cash on delivery
+		setLabel(mainPanel,"cash on delivery","",525, 285, 152, 30);//online paymen
 		setLabel(mainPanel, "", "res\\PaymentMethod1.png", 0, 0, 1000, 600);//bg
 
 

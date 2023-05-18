@@ -56,7 +56,7 @@ public class Cart extends JFrame{
                     Main.purchaseHistoryDatabase.add("productId=" + item.productID + ",productName=" + item.productName + ",productPrice=" + item.productPrice + ",quantity=" + (item.productQuantity == null ? "1" : item.productQuantity) + ",manufacturer=" + item.productManufacturer + ",manufactureDate=" + item.manufacturingDate + ",expireDate=" + item.expiryDate);
                 }
                 Main.CartDatabase.clear();
-                JOptionPane.showMessageDialog(null, "You have purchased products!");
+                //JOptionPane.showMessageDialog(null, "You have purchased products!");
                 dispose();
                 new PaymentMethod1();
 

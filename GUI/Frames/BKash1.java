@@ -25,10 +25,10 @@ public class BKash1 extends JFrame{
 	
 	private JPanel mainPanel,productPanel, viewDetailsPanel;
 	private JTextField phoneField;
+
 	private int x_axis_product=0;
 	private int y_axis_product=0;
 	private int x_axis_productpanel=90;
-
 
 	
 	BKash1(){
