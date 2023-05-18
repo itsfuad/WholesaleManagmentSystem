@@ -49,6 +49,20 @@ public class Servicing extends JFrame{
 
                 String productId = jtextfield.getText();
 
+                //product id is a 4 digit number
+                if (productId.length() != 4) {
+                    JOptionPane.showMessageDialog(null, "Invalid Product ID");
+                    return;
+                }
+
+                //product id is a number
+                try {
+                    Integer.parseInt(productId);
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid Product ID");
+                    return;
+                }
+
                 String MFD = Main.ProductsDatabase.getQueryResult(productId, "manufactureDate");
                 String EXP = Main.ProductsDatabase.getQueryResult(productId, "expireDate");
 
