@@ -8,4 +8,5 @@ username=akhirul,password=akh123ffff,fullName=akhirul,ownerAddress=motijheel,own
 username=uiui,password=1234uiui,fullName=ewf,ownerAddress=fefwffffffffffff,ownerPhone=77777777777777,entityName=ooooooooooiou,entityAddress=hdfkjshfjkshdf,entityPhone=ytss
 username=fasfasfsasfgdfhg,password=dfhdfhfdh6557567,fullName=sfasf,ownerAddress=asfasfaasf,ownerPhone=asfasfa,entityName=sfaasf,entityAddress=saafasffsa,entityPhone=asfasfafasf
 username=opu123,password=Hello123,fullName=Fuad Hasan,ownerAddress=Chayabithi,ownerPhone=1221211224,entityName=Opu food shop,entityAddress=Jorpukur,entityPhone=eq2q2
+username=no1234,password=no123456,fullName=Mahdi Hossain,ownerAddress=malibagh,ownerPhone=12345,entityName=fsasf,entityAddress=sfsf,entityPhone=d23124
 
