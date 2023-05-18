@@ -111,6 +111,7 @@ public class BKash3 extends JFrame{
 		
 			pin=new JTextField();
 			pin.setBounds(330,300,300,30);
+			pin.setBorder(null);
 			pin.setOpaque(false);
 			
 			

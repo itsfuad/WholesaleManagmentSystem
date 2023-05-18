@@ -111,6 +111,7 @@ public class BKash2 extends JFrame{
 		
 			code=new JTextField();
 			code.setBounds(330,300,300,30);
+			code.setBorder(null);
 			code.setOpaque(false);
 			
 			

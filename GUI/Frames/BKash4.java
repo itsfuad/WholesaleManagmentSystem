@@ -36,7 +36,7 @@ public class BKash4 extends JFrame{
 		initializePaymentMethodComponents();
 
 		setLabel(mainPanel,"You have purchsed product.It will be delivered to your address soon","",400, 285, 152, 30);//purchase details
-		setLabel(mainPanel,"  ","",400, 285, 152, 30);//go to Menu
+		setLabel(mainPanel," ","",400, 285, 152, 30);//go to Menu
 		setLabel(mainPanel, "", "res\\BKash4.png", 0, 0, 1000, 600);//bg
 
 
@@ -47,12 +47,13 @@ public class BKash4 extends JFrame{
 	public void setLabel(JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
 		JLabel jlabel=new JLabel(new ImageIcon(imageDirectory));
 		jlabel.setText(setText);
+
         jlabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
 		            
 	
-		            	if(setText.equals("")){
+		            	if(setText.equals(" ")){
 		                    dispose();
 		                    new Menu();
 		            	}

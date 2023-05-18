@@ -1,2 +1,0 @@
-productId=0008,productName=Square Toiletries Soap,productPrice=25,quantity=30,manufacturer=Square Toiletries Ltd.,manufactureDate=8.5.2023,expireDate=2 years
-productId=0002,productName=Fresh Salt,productPrice=40,quantity=2,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 day
