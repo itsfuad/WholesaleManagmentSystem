@@ -32,11 +32,12 @@ public class Shop extends JFrame{
 	private int x_axis_product=0;
 	private int y_axis_product=0;
 	private int x_axis_productpanel=90;
-	private HashMap<Product, Boolean> Cart = new HashMap<>();
+	private HashMap<Product, Boolean> cart = new HashMap<>();
 	private ArrayList<Product> products;
-	private int finalI;
 	private Timer swipeTimer;
     private int swipeDirection = 0;
+
+	private Product selectedProduct;
 
 	
 	Shop(){
@@ -52,11 +53,11 @@ public class Shop extends JFrame{
 		setLabel(mainPanel,"back","",0,0,60,60);//back
 		setLabel(mainPanel,"cart","",684, 40, 60, 60);//cart
 		setLabel(mainPanel,"search","",636, 40, 60, 60);//search
-		setLabel(mainPanel,"Add to Cart","",20, 530, 60, 60);//bg
+		setLabel(mainPanel,"addtocart","",20, 530, 60, 60);//bg
 
 		viewDetailsPanel = new JPanel();
-		viewDetailsPanel.setBounds(0, 0, 300, 600);
-		//viewDetailsPanel.setBackground(Color.CYAN);
+		viewDetailsPanel.setBounds(0, 0, 300, 500);
+		viewDetailsPanel.setBackground(new Color(255, 220, 82, 255));
 		mainPanel.add(viewDetailsPanel);
 
 		showDetails(products.get(0));
@@ -85,19 +86,11 @@ public class Shop extends JFrame{
 		scrollPane.getViewport().setOpaque(false);
 		mainPanel.add(scrollPane);
 
-		//create products
-		for (int i = 0; i < products.size(); i++) {
-			JLabel product = new JLabel(products.get(i).productName);
-			//set size
-			product.setPreferredSize(new Dimension(200, 200));
-			//set background
-			product.setBackground(new Color(0, 0, 0, 118));
-			product.setOpaque(true);
-			productPanel.add(product);
-		}
+		showProducts(products);
 
-		setLabel(mainPanel, "", "res\\Shopping1.png", 0, 0, 1016, 638);//bg
+		//setLabel(mainPanel, "", "res\\Shopping1.png", 0, 0, 1016, 638);//bg
 
+		mainPanel.setBackground(new Color(255, 233, 82, 255));
 
 		//setLabel(mainPanel,"","res\\Shopping1.png",0,0,1000,600);//bg
 		readExistingCart();
@@ -105,10 +98,81 @@ public class Shop extends JFrame{
 		this.setVisible(true);
 	}
 
+
+	private void showProducts(ArrayList<Product> productList){
+		//create products
+		for (int i = 0; i < productList.size(); i++) {
+
+
+			JPanel productItemPanel = new JPanel();
+			productItemPanel.setLayout(new BoxLayout(productItemPanel, BoxLayout.Y_AXIS));
+			productItemPanel.setBackground(new Color(255, 255, 255, 39));
+			productItemPanel.setOpaque(true);
+			productItemPanel.setPreferredSize(new Dimension(200, 200));
+			productItemPanel.setMaximumSize(productItemPanel.getPreferredSize());
+
+			final int finalI = i;
+
+			System.out.println("Index: " + i + " Product: " + productList.get(i).productName);
+
+			JLabel productImageLabel = new JLabel();
+
+			ImageIcon imageIcon = new ImageIcon("res\\ProductImages\\20230210104817_original__media_385 (1).png");
+			productImageLabel.setIcon(imageIcon);
+			productImageLabel.setBounds(50, 60, 250, 250);
+			productImageLabel.setVisible(true);
+			//align
+			productImageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+			productItemPanel.setAlignmentY(Component.CENTER_ALIGNMENT);
+
+			JLabel productName = new JLabel(productList.get(i).productName);
+			//set padding
+			productName.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
+
+;
+			//set background
+			//productName.setBackground(new Color(255, 82, 82, 118));
+			productName.setForeground(Color.WHITE);
+			productName.setFont(new Font("Arial", Font.BOLD, 20));
+			productName.setOpaque(false);
+
+			JLabel productPrice = new JLabel("Price: " + productList.get(i).productPrice);
+			productPrice.setForeground(Color.WHITE);
+			//left padding
+			productPrice.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
+
+			productItemPanel.add(productImageLabel);
+			productItemPanel.add(productName);
+			productItemPanel.add(productPrice);
+
+			productItemPanel.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					super.mouseClicked(e);
+					selectedProduct = productList.get(finalI);
+					System.out.println("Index: " + finalI + " Product: " + selectedProduct.productName);
+					showDetails(selectedProduct);
+				}
+			});
+
+			productPanel.add(productItemPanel);
+		}
+	}
+
 	public void showDetails(Product product){
 		viewDetailsPanel.removeAll();
+		viewDetailsPanel.repaint();
+
+		System.out.println("Showing details of: " + product.productName);
+
+		selectedProduct = product;
 
 		viewDetailsPanel.setLayout(null);
+
+		JLabel productImageLabel = new JLabel();
+		productImageLabel.setBounds(20, 40, 250, 250);
+		productImageLabel.setIcon(new ImageIcon("res\\ProductImages\\aci_pure_salt.png"));
+		viewDetailsPanel.add(productImageLabel);
 
 		JLabel productName = new JLabel(product.productName);
 		productName.setBounds(20, 260, 300, 50);
@@ -146,6 +210,7 @@ public class Shop extends JFrame{
 
 	public void setLabel(JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
 		JLabel jlabel=new JLabel(new ImageIcon(imageDirectory));
+
 		jlabel.setText(setText);
 		
         jlabel.addMouseListener(new MouseAdapter() {
@@ -161,13 +226,10 @@ public class Shop extends JFrame{
 		                    new DefaultPage();
 		        		}
 		            	if(setText.equals("back")){
-		            		updateCartDatabase();
 		                    dispose();
 		                    new Menu();
 		            	}
 		            	if(setText.equals("cart")){
-		            		 updateCartDatabase();
-		
 		                     dispose();
 		                     System.out.println("Cart button clicked");
 		                     new Cart();
@@ -181,48 +243,53 @@ public class Shop extends JFrame{
 		
 		                    //search for Product
 		                    Database producDatabase = new Database("products.txt");
-		
-		                    for (Product item : producDatabase.getProducts(queryString)){
-		                        System.out.println("-------------------------------------------");
+
+							ArrayList<Product> products = producDatabase.getProducts(queryString);
+
+		                    for (Product item : products){
+		                        System.out.println("-------------- SEARCH RESULT --------------");
 		                        System.out.println("ID: " + item.productID);
 		                        System.out.println("Name: " + item.productName);
 		                        System.out.println("Price: " + item.productPrice);
 		                        System.out.println("MFD: " + item.manufacturingDate);
 		                        System.out.println("EXP: " + item.expiryDate);
 		                        System.out.println("-------------------------------------------");
-		            	}
+
+								productPanel.removeAll();
+								productPanel.repaint();
+
+								showProducts(products);
+
+								productPanel.revalidate();
+		            		}
 		            	
 		            	}
 		            	if (setText.equals("addtocart")) {//@fuad check
-		            		
-		            	    if (selectedProducts.isEmpty()) {
-		            	        System.out.println("No product selected");
-		            	        JOptionPane.showMessageDialog(null, "Please select a product");
-		            	        return;
-		            	    }
+							readExistingCart();
 
-		            	    for (Product selectedProduct : selectedProducts) {
-		            	        boolean found = false;
 
-		            	        for (Product item : Cart.keySet()) {
-		            	            if (item.productID.equals(selectedProduct.productID)) {
-		            	                found = true;
-		            	                break;
-		            	            }
-		            	        }
+							if (selectedProduct == null){
+								System.out.println("no product selected");
+								JOptionPane.showMessageDialog(null, "Please select a product");
+								return;
+							}
 
-		            	        if (!found) {
-		            	            Cart.put(selectedProduct, true);
-		            	            System.out.println("Product added to cart: " + selectedProduct.productName);
-		            	        }
-		            	    }
+							for (Product p : cart.keySet()){
 
-		            	    // Clear the selected products list after adding to the cart
-		            	    selectedProducts.clear();
-		            	} else {
-		            	    // Add the selected product to the list
-		            	    selectedProducts.add(products.get(finalI));
-		            	    System.out.println(selectedProducts);
+								System.out.println("Product in cart map: " + p.productName);
+								if (p.productID.equals(selectedProduct.productID)){
+									System.out.println("product already in cart");
+									JOptionPane.showMessageDialog(null, "Product is already in cart");
+									return;
+								}
+							}
+
+							//adds product to cart
+							System.out.println("product added to cart:\n"+ selectedProduct.productName);//fuad step1: select a product step 2 : click on add to cart button step3: cart.txt product is added with quantity 1
+							JOptionPane.showMessageDialog(null, selectedProduct.productName + " added to cart");
+							//addedProducts.add(new product(selected, 1));
+							cart.put(selectedProduct, true);
+							updateCartDatabase();
 		            	}
             }
 
@@ -267,7 +334,7 @@ public class Shop extends JFrame{
 	        ArrayList<Product> cartItems = cartDatabase.getCart();
 
 	        for (Product item : cartItems){
-	            Cart.put(item, true);
+	            cart.put(item, true);
 	        }
 	    }
 
@@ -275,7 +342,7 @@ public class Shop extends JFrame{
 	        Database cartDatabase = new Database("cart.txt");
 	        cartDatabase.clear();
 	        //add products to cart database
-	        for (Product item : Cart.keySet()){
+	        for (Product item : cart.keySet()){
 	            //System.out.println(item.productID + " | " + item.productName + " | " + item.productPrice + " | " + item.productQuantity + " | " + item.manufacturingDate + " | " + item.expiryDate);
 	            cartDatabase.add("productId=" + item.productID + ",productName=" + item.productName + ",productPrice=" + item.productPrice + ",quantity=" + (item.productQuantity == null ? "1" : item.productQuantity) + ",manufactureDate=" + item.manufacturingDate + ",expireDate=" + item.expiryDate);
 	        }
