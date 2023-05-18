@@ -47,6 +47,7 @@ public class BKash1 extends JFrame{
 
 	public void setLabel(JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
 		JLabel jlabel=new JLabel(new ImageIcon(imageDirectory));
+
 		jlabel.setText(setText);
         jlabel.addMouseListener(new MouseAdapter() {
             @Override
@@ -110,7 +111,8 @@ public class BKash1 extends JFrame{
 	public void initializePaymentMethodComponents() {
 		
 			phoneField=new JTextField();
-			phoneField.setBounds(500,300,150,30);
+			phoneField.setBounds(330,300,300,30);
+			phoneField.setBorder(null);
 			phoneField.setOpaque(false);
 			
 			

@@ -110,7 +110,7 @@ public class BKash3 extends JFrame{
 	public void initializePaymentMethodComponents() {
 		
 			pin=new JTextField();
-			pin.setBounds(500,300,150,30);
+			pin.setBounds(330,300,300,30);
 			pin.setOpaque(false);
 			
 			

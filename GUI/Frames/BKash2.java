@@ -110,7 +110,7 @@ public class BKash2 extends JFrame{
 	public void initializePaymentMethodComponents() {
 		
 			code=new JTextField();
-			code.setBounds(500,300,150,30);
+			code.setBounds(330,300,300,30);
 			code.setOpaque(false);
 			
 			
