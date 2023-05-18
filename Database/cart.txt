@@ -1,0 +1,3 @@
+productId=0002,productName=Fresh Salt,productPrice=60,quantity=1,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 year
+productId=0004,productName=Ispahani Mirzapore Tea,productPrice=210,quantity=1,manufacturer=Ispahani Tea Limited,manufactureDate=10.5.2023,expireDate=2 years
+productId=0007,productName=Pepsi Soft Drink,productPrice=40,quantity=1,manufacturer=PepsiCo,manufactureDate=9.5.2023,expireDate=6 months

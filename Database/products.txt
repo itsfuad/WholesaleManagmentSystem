@@ -1,5 +1,5 @@
 productId=0001,productName=ACI Fresh Salt,productCategory=Salt,productPrice=65,manufacturer=ACI food company,manufactureDate=22.5.2023,expireDate=1 year
-productId=0002,productName=Fresh Salt,productCategory=Salt,productPrice=60,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 year
+productId=0002,productName=Fresh Salt,productCategory=Salt,productPrice=60,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 day
 productId=0003,productName=Pran Frooto Juice,productCategory=Juice,productPrice=25,manufacturer=Pran Group,manufactureDate=14.5.2023,expireDate=6 months
 productId=0004,productName=Ispahani Mirzapore Tea,productCategory=Tea,productPrice=210,manufacturer=Ispahani Tea Limited,manufactureDate=10.5.2023,expireDate=2 years
 productId=0005,productName=Nestle Nido Milk Powder,productCategory=Milk Powder,productPrice=1080,manufacturer=Nestle Bangladesh Ltd.,manufactureDate=1.5.2023,expireDate=1 year

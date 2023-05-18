@@ -29,26 +29,28 @@ public class Shop extends JFrame{
 	
 	private JPanel mainPanel,productPanel, viewDetailsPanel;
 	private JTextField searchField;
-	private List<Product> selectedProducts = new ArrayList<>();
-	private int x_axis_product=0;
-	private int y_axis_product=0;
-	private int x_axis_productpanel=90;
-	private HashMap<Product, Boolean> cart = new HashMap<>();
+	private ArrayList<Product> cart = new ArrayList<>();
 	private ArrayList<Product> products = Main.ProductsDatabase.getAllProducts();
 	private Timer swipeTimer;
     private int swipeDirection = 0;
 
 	private Product selectedProduct;
 
-	
-	Shop(){
+	//round circle to show the number of items in the cart
+	private JLabel notificationLabel;
+
+	Shop() throws InterruptedException {
 		
 		createFrame("Shopping",0,0,1016,638);
 		initializeShopComponents();
 
+		// Create the notification label and add it to the circle panel
+		notificationLabel = new JLabel("0");
+		notificationLabel.setFont(new Font("Arial", Font.BOLD, 16));
+		notificationLabel.setBounds(710, 40, 20, 20);
+		notificationLabel.setForeground(new Color(255, 10, 10));
 
-
-
+		mainPanel.add(notificationLabel);
 
 		mainPanel.add(searchField);
 		//setLabel(mainPanel,"signout","",802,48,160,43);//signout
@@ -100,7 +102,11 @@ public class Shop extends JFrame{
 		addToCartButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				addToCart();
+				try {
+					addToCart();
+				} catch (InterruptedException ex) {
+					throw new RuntimeException(ex);
+				}
 			}
 		});
 
@@ -158,6 +164,7 @@ public class Shop extends JFrame{
 		//setLabel(mainPanel,"","res\\Shopping1.png",0,0,1000,600);//bg
 
 		readExistingCart();
+		notifyUser();
 
 		this.setVisible(true);
 	}
@@ -302,7 +309,7 @@ public class Shop extends JFrame{
 		}
 	}
 
-	private void addToCart(){
+	private void addToCart() throws InterruptedException {
 		readExistingCart();
 
 		if (selectedProduct == null){
@@ -311,9 +318,9 @@ public class Shop extends JFrame{
 			return;
 		}
 
-		for (Product p : cart.keySet()){
+		for (Product p : cart){
 
-			System.out.println("Product in cart map: " + p.productName);
+			System.out.println("Product in cart array: " + p.productName);
 			if (p.productID.equals(selectedProduct.productID)){
 				System.out.println("product already in cart");
 				JOptionPane.showMessageDialog(null, "Product is already in cart");
@@ -325,8 +332,9 @@ public class Shop extends JFrame{
 		System.out.println("product added to cart:\n"+ selectedProduct.productName);//fuad step1: select a product step 2 : click on add to cart button step3: cart.txt product is added with quantity 1
 		JOptionPane.showMessageDialog(null, selectedProduct.productName + " added to cart");
 		//addedProducts.add(new product(selected, 1));
-		cart.put(selectedProduct, true);
+		cart.add(selectedProduct);
 		updateCartDatabase();
+		notifyUser();
 	}
 	
 	public void createFrame(String setTitle,int x_axis,int y_axis,int width,int height) {
@@ -340,10 +348,6 @@ public class Shop extends JFrame{
 	        getContentPane().add(mainPanel);
 	        this.setBounds(x_axis,y_axis,width,height);
 	        this.setLocationRelativeTo(null);
-	        
-	        
-	        
-	       
 	}
 	public void initializeShopComponents() {
 			searchField=new JTextField();
@@ -351,24 +355,28 @@ public class Shop extends JFrame{
 	        searchField.setBorder(null);
 	        searchField.setBounds(343,60,243,20);
 	}
-	
-	 public static void main(String[] args){
-	     new Shop();
-	    }
+
+	private void notifyUser() {
+		//rounded red box shape
+		// Create the red filled circle panel
+		notificationLabel.setText(Integer.toString(cart.size()));
+
+		System.out.println("cart size: " + Integer.toString(cart.size()));
+	}
 	 
 	 public void readExistingCart(){
 	        //read cart from database and put values in the cart map
 	        ArrayList<Product> cartItems = Main.CartDatabase.getCart();
 
 	        for (Product item : cartItems){
-	            cart.put(item, true);
+	            cart.add(item);
 	        }
 	    }
 
 	    public void updateCartDatabase(){
 	        Main.CartDatabase.clear();
 	        //add products to cart database
-	        for (Product item : cart.keySet()){
+	        for (Product item : cart){
 	            System.out.println(item.productID + " | " + item.productName + " | " + item.productPrice + " | " + item.productQuantity + " | " + item.productManufacturer + " | " + item.manufacturingDate + " | " + item.expiryDate);
 	            Main.CartDatabase.add("productId=" + item.productID + ",productName=" + item.productName + ",productPrice=" + item.productPrice + ",quantity=" + (item.productQuantity == null ? "1" : item.productQuantity) + ",manufacturer=" + item.productManufacturer + ",manufactureDate=" + item.manufacturingDate + ",expireDate=" + item.expiryDate);
 	        }

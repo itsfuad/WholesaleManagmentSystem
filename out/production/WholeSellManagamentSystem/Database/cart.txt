@@ -1,1 +1,0 @@
-productId=0001,productName=ACI Fresh Salt,productPrice=65,quantity=6,manufacturer=ACI food company,manufactureDate=22.5.2023,expireDate=1 year

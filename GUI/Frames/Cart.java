@@ -2,11 +2,11 @@ package GUI.Frames;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.crypto.Data;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
+import GUI.ButtonDesigner;
 import Types.*;
 import src.Main;
 
@@ -17,7 +17,7 @@ public class Cart extends JFrame{
     protected JLabel backgroundImageLabel, purchaseButtonLabel, jlabelback;
     protected JTable table;
     private int quantity;
-    private JButton addButton,subtractButton;
+    private JLabel addButton,subtractButton;
     private ArrayList<Product> cartItems;
     String quantityString;
 
@@ -32,6 +32,7 @@ public class Cart extends JFrame{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getContentPane().add(jpanel);
         jpanel.setLayout(null);
+        jpanel.setBackground(new Color(170, 217, 255, 255));
         setResizable(false);
         setExtendedState(JFrame.MAXIMIZED_HORIZ);
 
@@ -62,11 +63,11 @@ public class Cart extends JFrame{
         purchaseButtonLabel.setBounds(426, 527, 153, 40);
         jpanel.add(purchaseButtonLabel);
 
-        JButton removeButton = new JButton("Remove");
-        removeButton.setBounds(702, 482, 82, 27);
-        removeButton.addActionListener(new ActionListener() {
+        JLabel removeButton = new ButtonDesigner("Remove", Color.white, new Color(232, 7, 7), new Color(204, 4, 4), 16).getLabel();
+        removeButton.setBounds(670, 482, 120, 40);
+        removeButton.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mouseClicked(MouseEvent e) {
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow == 0){
                     return;
@@ -76,18 +77,17 @@ public class Cart extends JFrame{
                     String productId = model.getValueAt(selectedRow, 0).toString();
                     deleteProduct(productId);
                     model.removeRow(selectedRow);
-
                     updateCart();
                 }
             }
         });
         jpanel.add(removeButton);
 
-        addButton = new JButton("+");
-        addButton.setBounds(794, 482, 67, 27);
-        addButton.addActionListener(new ActionListener() {
+        addButton = new ButtonDesigner("+", Color.white, new Color(0, 0, 0), new Color(40, 40, 40), 16).getLabel();
+        addButton.setBounds(794, 482, 40, 40);
+        addButton.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mouseClicked(MouseEvent e) {
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow == 0){
                     return;
@@ -99,7 +99,6 @@ public class Cart extends JFrame{
                     if (quantityString != null && !quantityString.isEmpty() && !quantityString.equals("null")) {
                         quantity = Integer.parseInt(quantityString);
                         model.setValueAt(quantity + 1, selectedRow, 3); // Increase quantity by 1);
-                        updateTotal();
                         updateCart();
                     }
                 }
@@ -107,11 +106,11 @@ public class Cart extends JFrame{
         });
         jpanel.add(addButton);
 
-        subtractButton = new JButton("-");
-        subtractButton.setBounds(625, 482, 67, 27);
-        subtractButton.addActionListener(new ActionListener() {
+        subtractButton = new ButtonDesigner("-", Color.white, new Color(0, 0, 0), new Color(40, 40, 40), 16).getLabel();
+        subtractButton.setBounds(625, 482, 40, 40);
+        subtractButton.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mouseClicked(MouseEvent e) {
                 int selectedRow = table.getSelectedRow();
                 if (selectedRow == 0){
                     return;
@@ -124,7 +123,6 @@ public class Cart extends JFrame{
                         quantity = Integer.parseInt(quantityString);
                         if (quantity > 1) {
                             model.setValueAt(quantity - 1, selectedRow, 3); // Decrease quantity by 1
-                            updateTotal();
                             updateCart();
                         }
                     }
@@ -135,6 +133,7 @@ public class Cart extends JFrame{
         jpanel.add(subtractButton);
 
         table = new JTable();
+        table.setBackground(new Color(196, 227, 255));
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         DefaultTableModel model = new DefaultTableModel(
                 new Object[][]{{"Product ID","Product Name", "Product Price", "Product Quantity"}},
@@ -156,9 +155,8 @@ public class Cart extends JFrame{
         table.setBounds(100, 140, 800, 340);
         jpanel.add(table);
 
-        jlabelback = new JLabel("");
-        jlabelback.setIcon(new ImageIcon(""));
-        jlabelback.setBounds(42, 41, 59, 60);
+        jlabelback = new ButtonDesigner("Back", Color.white, new Color(0, 0, 0), new Color(40, 40, 40), 16).getLabel();
+        jlabelback.setBounds(42, 41, 120, 40);
         jlabelback.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
