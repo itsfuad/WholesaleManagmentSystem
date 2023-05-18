@@ -364,9 +364,9 @@ public class Shop extends JFrame{
 	private void notifyUser() {
 		//rounded red box shape
 		// Create the red filled circle panel
-		notificationLabel.setText("" + cart.size());
+		notificationLabel.setText(Integer.toString(cart.size()));
 
-		System.out.println("cart size: " + cart.size());
+		System.out.println("cart size: " + Integer.toString(cart.size()));
 	}
 	 
 	 public void readExistingCart(){
