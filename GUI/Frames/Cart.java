@@ -183,27 +183,16 @@ public class Cart extends JFrame{
     public void deleteProduct(String productId){
         System.out.println("Product ID: " + productId + " has been deleted from the cart.");
         Main.CartDatabase.removeProduct(productId);
+        updateTotal();
     }
 
     private void updateTotal() {
         total = 0;
-        /*
+
+        ArrayList<Product> cartItems = Main.CartDatabase.getCart();
+
         for (Product p : cartItems) {
-            System.out.println(p.productPrice + " " + p.productQuantity);
             total += Integer.parseInt(p.productPrice) * Integer.parseInt(p.productQuantity);
-        }
-
-         */
-
-        //update from table
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-
-        for (int i = 1; i < model.getRowCount(); i++) {
-
-            int price = Integer.parseInt(model.getValueAt(i, 2).toString());
-            int quantity = Integer.parseInt(model.getValueAt(i, 3).toString());
-
-            total += price * quantity;
         }
 
 

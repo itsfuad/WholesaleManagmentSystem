@@ -1,0 +1,2 @@
+productId=0006,productName=Pran Miniket Rice,productPrice=69,quantity=7,manufacturer=Pran Group,manufactureDate=12.5.2023,expireDate=1 year
+productId=0004,productName=Ispahani Mirzapore Tea,productPrice=210,quantity=9,manufacturer=Ispahani Tea Limited,manufactureDate=10.5.2023,expireDate=2 years
