@@ -20,10 +20,9 @@ public class Shopping extends JFrame {
     private JLabel backgroundImageLabel,addtocart,productlabel;
     private JPanel mainPanel;
     private List<Rectangle> labelBounds;
-    private String selected;
     private Product selectedProduct;
-    Database cartDatabase;
-    ArrayList<Product> cartItems;
+  //  Database cartDatabase;
+   // ArrayList<Product> cartItems;
 
 
     private HashMap<Product, Boolean> Cart = new HashMap<>();
@@ -318,8 +317,8 @@ public class Shopping extends JFrame {
 
     public void readExistingCart(){
         //read cart from database and put values in the cart map
-         cartDatabase= new Database("cart.txt");
-         cartItems= cartDatabase.getCart();
+    	Database cartDatabase= new Database("cart.txt");
+    	ArrayList<Product> cartItems= cartDatabase.getCart();
 
         for (Product item : cartItems){
             Cart.put(item, true);
@@ -327,7 +326,7 @@ public class Shopping extends JFrame {
     }
 
     public void updateCartDatabase(){
-        cartDatabase = new Database("cart.txt");
+    	Database cartDatabase = new Database("cart.txt");
         cartDatabase.clear();
         //add products to cart database
         for (Product item : Cart.keySet()){
