@@ -130,8 +130,8 @@ public class Database {
             String[] parts = line.split(",");
             String id = parts[0];
             String name = parts[1];
-            String manufacturer = parts[4];
             String price = parts[3];
+            String manufacturer = parts[4];
             String manufactureDate = parts[5];
             String expiryDate = parts[6];
 
