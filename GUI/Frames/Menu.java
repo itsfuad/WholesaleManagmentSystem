@@ -139,7 +139,7 @@ public class Menu extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 dispose();
-               // new Servicing();
+                new Servicing();
             }
             @Override
             public void mouseEntered(MouseEvent e) {
