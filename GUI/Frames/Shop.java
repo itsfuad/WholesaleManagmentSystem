@@ -44,7 +44,7 @@ public class Shop extends JFrame{
 	private JLabel notificationLabel;
 	private JPanel circlePanel;
 
-	Shop(){
+	Shop() throws InterruptedException {
 		
 		createFrame("Shopping",0,0,1016,638);
 		initializeShopComponents();
@@ -107,7 +107,11 @@ public class Shop extends JFrame{
 		addToCartButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				addToCart();
+				try {
+					addToCart();
+				} catch (InterruptedException ex) {
+					throw new RuntimeException(ex);
+				}
 			}
 		});
 
@@ -310,7 +314,7 @@ public class Shop extends JFrame{
 		}
 	}
 
-	private void addToCart(){
+	private void addToCart() throws InterruptedException {
 		readExistingCart();
 
 		if (selectedProduct == null){
@@ -357,17 +361,13 @@ public class Shop extends JFrame{
 	        searchField.setBounds(343,60,243,20);
 	}
 
-	private void notifyUser(){
+	private void notifyUser() {
 		//rounded red box shape
 		// Create the red filled circle panel
 		notificationLabel.setText("" + cart.size());
 
 		System.out.println("cart size: " + cart.size());
 	}
-	
-	 public static void main(String[] args){
-	     new Shop();
-	    }
 	 
 	 public void readExistingCart(){
 	        //read cart from database and put values in the cart map

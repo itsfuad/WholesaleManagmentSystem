@@ -160,7 +160,11 @@ public class Cart extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 dispose();
-                new Shop();
+                try {
+                    new Shop();
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         jpanel.add(jlabelback);

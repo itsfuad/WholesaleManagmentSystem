@@ -16,3 +16,4 @@ productId=0040,productName=P&G Ariel Detergent Powder,productPrice=110,quantity=
 productId=0037,productName=Globe Pharmaceuticals Paracetamol,productPrice=25,quantity=1,manufacturer=Globe Pharmaceuticals Ltd.,manufactureDate=27.6.2023,expireDate=3 years
 productId=0029,productName=Radhuni Curry Powder,productPrice=40,quantity=1,manufacturer=Square Consumer Products Limited,manufactureDate=11.6.2023,expireDate=2 years
 productId=0020,productName=Square Pharmaceuticals Paracetamol,productPrice=30,quantity=1,manufacturer=Square Pharmaceuticals Ltd.,manufactureDate=26.5.2023,expireDate=3 years
+productId=0030,productName=Pran Mixed Fruit Jam,productPrice=70,quantity=1,manufacturer=Pran Group,manufactureDate=13.6.2023,expireDate=1 year
