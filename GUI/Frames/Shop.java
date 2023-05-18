@@ -116,7 +116,7 @@ public class Shop extends JFrame{
 	        searchField.setBounds(343,118,243,20);
 			productPanel = new JPanel();
 			productPanel.setOpaque(false);
-	        productPanel.setBounds(100, 166, 1000, 360);
+	        productPanel.setBounds(90, 166, 2000, 360);
 	        productPanel.setLayout(null);
 	        notificationPanel = new JPanel();
 	        notificationPanel.setBounds(90, 535, 216, 27);

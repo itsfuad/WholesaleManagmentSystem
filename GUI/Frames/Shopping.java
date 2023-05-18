@@ -22,6 +22,8 @@ public class Shopping extends JFrame {
     private List<Rectangle> labelBounds;
     private String selected;
     private Product selectedProduct;
+    Database cartDatabase;
+    ArrayList<Product> cartItems;
 
 
     private HashMap<Product, Boolean> Cart = new HashMap<>();
@@ -316,8 +318,8 @@ public class Shopping extends JFrame {
 
     public void readExistingCart(){
         //read cart from database and put values in the cart map
-        Database cartDatabase = new Database("cart.txt");
-        ArrayList<Product> cartItems = cartDatabase.getCart();
+         cartDatabase= new Database("cart.txt");
+         cartItems= cartDatabase.getCart();
 
         for (Product item : cartItems){
             Cart.put(item, true);
@@ -325,7 +327,7 @@ public class Shopping extends JFrame {
     }
 
     public void updateCartDatabase(){
-        Database cartDatabase = new Database("cart.txt");
+        cartDatabase = new Database("cart.txt");
         cartDatabase.clear();
         //add products to cart database
         for (Product item : Cart.keySet()){
