@@ -36,6 +36,10 @@ public class Shopping extends JFrame {
         setResizable(false);
         setExtendedState(JFrame.MAXIMIZED_HORIZ);
 
+        //setIcon
+        ImageIcon icon = new ImageIcon("res\\icon.png");
+        setIconImage(icon.getImage());
+
         mainPanel = new JPanel();
         mainPanel.setLayout(null);
         labelBounds = new ArrayList<>();

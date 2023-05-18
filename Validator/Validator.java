@@ -23,6 +23,16 @@ public class Validator extends JFrame {
         return validatePassword(password);
     }
 
+    public boolean validateAll(String[] fields){
+        for (String field : fields){
+            if (field.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please fill all the fields");
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean validatePassword(String password){
         // password validation [cannot contain spaces. Can use only letters and numbers
         if (password.equals("")) {

@@ -10,7 +10,7 @@ import java.util.*;
 import Database.*;
 import Types.*;
 
-public class Cart {
+public class Cart extends JFrame{
 
     protected JFrame jframe;
     protected JPanel jpanel;
@@ -25,16 +25,19 @@ public class Cart {
 
         cartItems = new ArrayList<Product>();
         db = new Database("cart.txt");
-
-        jframe = new JFrame();
-        jframe.setTitle("Cart");
-        jframe.setSize(new Dimension(1016, 638));
+        
+        setTitle("Cart");
+        setSize(new Dimension(1016, 638));
         jpanel = new JPanel();
-        jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        jframe.getContentPane().add(jpanel);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        getContentPane().add(jpanel);
         jpanel.setLayout(null);
-        jframe.setResizable(false);
-        jframe.setExtendedState(JFrame.MAXIMIZED_HORIZ);
+        setResizable(false);
+        setExtendedState(JFrame.MAXIMIZED_HORIZ);
+
+        //setIcon
+        ImageIcon icon = new ImageIcon("res\\icon.png");
+        setIconImage(icon.getImage());
 
         purchaseButtonLabel = new JLabel("");
         purchaseButtonLabel.addMouseListener(new MouseAdapter() {
@@ -42,7 +45,7 @@ public class Cart {
             public void mouseClicked(MouseEvent e) {
                 db.clear();
                 JOptionPane.showMessageDialog(null, "You have purchased products!");
-                jframe.dispose();
+                dispose();
                 new Menu();
 
             }
@@ -149,7 +152,7 @@ public class Cart {
             @Override
             public void mouseClicked(MouseEvent e) {
                 updateCart();
-                jframe.dispose();
+                dispose();
                 new Menu();
             }
         });
@@ -160,7 +163,7 @@ public class Cart {
         totalLabel.setBounds(133, 540, 150, 14);
         jpanel.add(totalLabel);
 
-        jframe.addWindowListener(new WindowAdapter() {
+        addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 updateCart();
@@ -172,9 +175,9 @@ public class Cart {
         backgroundImageLabel.setSize(1000, 600);
         backgroundImageLabel.setIcon(new ImageIcon("res\\Cart.png"));
         jpanel.add(backgroundImageLabel);
-        jframe.setBounds(0, 0, 1016, 637);
-        jframe.setLocationRelativeTo(null);
-        jframe.setVisible(true);
+        setBounds(0, 0, 1016, 637);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     public void deleteProduct(String productId){

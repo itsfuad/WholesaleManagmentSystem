@@ -1,3 +1,5 @@
+package src;
+
 import Database.*;
 import GUI.Checkpoint.*;
 import GUI.Frames.*;
@@ -5,6 +7,7 @@ import GUI.Frames.*;
 public class Main{
 
     public static String USERNAME;
+    public static String fullName;
 
     public static void main(String[] args){
         System.out.println("Welcome to Wholesale Management System");
@@ -24,6 +27,7 @@ public class Main{
         Database db = new Database("users.txt");
 
         String ret = db.getQueryResult(USERNAME, "username");
+        fullName = db.getQueryResult(USERNAME, "fullName");
 
         System.out.println("Found user: " + ret);
 

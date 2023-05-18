@@ -299,7 +299,7 @@ public class Database {
         String[] lines = new String[this.data.size()];
         this.data.toArray(lines);
 
-        System.out.println("Updating " + QueryKey + " with " + QueryValue + " for " + PrimaryKey);
+        System.out.println("Updating " + QueryKey + " with " + QueryValue + " where primaryKey = " + PrimaryKey);
 
         // get which line the user is on
         int lineNum = -1;

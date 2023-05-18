@@ -8,9 +8,7 @@ import Database.*;
 import GUI.Frames.Menu;
 import Validator.*;
 
-public class Login {
-
-    protected JFrame jframe;
+public class Login extends JFrame {
     protected JPanel jpanel;
     protected JLabel jlabel,jlabel1,jlabel2,jlabel3,jlabel4;
     protected JTextField jtextfield;
@@ -18,19 +16,19 @@ public class Login {
     private String username, password;
 
     public Login() {
-
-
-        jframe=new JFrame();
-        jframe.setTitle("LogIn");//
-        jframe.setSize(new Dimension(1016,638));
+        
+        setTitle("LogIn");//
+        setSize(new Dimension(1016,638));
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jpanel=new JPanel();
-        jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        jframe.getContentPane().add(jpanel);
+        getContentPane().add(jpanel);
         jpanel.setLayout(null);
-        jframe.setResizable(false);
-        jframe.setExtendedState(JFrame.MAXIMIZED_HORIZ);
+        setResizable(false);
+        setExtendedState(JFrame.MAXIMIZED_HORIZ);
 
-
+        //setIcon
+        ImageIcon icon = new ImageIcon("res\\icon.png");
+        setIconImage(icon.getImage());
 
 
         jlabel1 = new JLabel("");
@@ -99,12 +97,12 @@ public class Login {
                     if (db.match("username=" + username + ",password=" + password)) {
                         Database loggedIn = new Database("loggedIn.txt");
                         loggedIn.add(username);
-                        JOptionPane.showMessageDialog(jframe, "Login successful");
-                        jframe.dispose();
+                        JOptionPane.showMessageDialog(null, "Login successful");
+                        dispose();
 
                         new Menu();
                     } else {
-                        JOptionPane.showMessageDialog(jframe, "Username or password is incorrect");
+                        JOptionPane.showMessageDialog(null, "Username or password is incorrect");
                     }
                 }
             }
@@ -143,9 +141,9 @@ public class Login {
         jlabel.setSize(1000, 600);
         jlabel.setIcon(new ImageIcon("res\\LogIn.png"));
         jpanel.add(jlabel);
-        jframe.setBounds(0,0,1016,637);
-        jframe.setLocationRelativeTo(null);
-        jframe.setVisible(true);
+        setBounds(0,0,1016,637);
+        setLocationRelativeTo(null);
+        setVisible(true);
 
 
     }
