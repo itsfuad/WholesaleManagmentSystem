@@ -1,0 +1,22 @@
+productId=0002,productName=Fresh Salt,productPrice=60,quantity=1,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 year
+productId=0004,productName=Ispahani Mirzapore Tea,productPrice=210,quantity=1,manufacturer=Ispahani Tea Limited,manufactureDate=10.5.2023,expireDate=2 years
+productId=0001,productName=ACI Fresh Salt,productPrice=65,quantity=6,manufacturer=ACI food company,manufactureDate=22.5.2023,expireDate=1 year
+productId=0003,productName=Pran Frooto Juice,productPrice=25,quantity=1,manufacturer=Pran Group,manufactureDate=14.5.2023,expireDate=6 months
+productId=0032,productName=ACI Pure Salt,productPrice=40,quantity=1,manufacturer=ACI Limited,manufactureDate=17.6.2023,expireDate=2 years
+productId=0009,productName=Kazi Farmas Honey,productPrice=340,quantity=3,manufacturer=Kazi Farms Group,manufactureDate=6.5.2023,expireDate=1 year
+productId=0002,productName=Fresh Salt,productPrice=60,quantity=4,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 year
+productId=0001,productName=ACI Fresh Salt,productPrice=65,quantity=1,manufacturer=ACI food company,manufactureDate=22.5.2023,expireDate=1 year
+productId=0027,productName=ACI Pure Mustard Oil,productPrice=105,quantity=1,manufacturer=ACI Limited,manufactureDate=7.6.2023,expireDate=2 years
+productId=0038,productName=Pran Orange Drink,productPrice=35,quantity=1,manufacturer=Pran Group,manufactureDate=29.6.2023,expireDate=6 months
+productId=0035,productName=Roxy Ball Pen,productPrice=15,quantity=1,manufacturer=Roxy Writing Instruments Ltd.,manufactureDate=23.6.2023,expireDate=N/A
+productId=0031,productName=Aarong Dairy Milk,productPrice=55,quantity=10,manufacturer=Aarong Dairy,manufactureDate=15.6.2023,expireDate=1 week
+productId=0005,productName=Nestle Nido Milk Powder,productPrice=1080,quantity=1,manufacturer=Nestle Bangladesh Ltd.,manufactureDate=1.5.2023,expireDate=1 year
+productId=0036,productName=Keya Cumin Powder,productPrice=50,quantity=1,manufacturer=Keya Agro Process Ltd.,manufactureDate=25.6.2023,expireDate=2 years
+productId=0007,productName=Pepsi Soft Drink,productPrice=40,quantity=1,manufacturer=PepsiCo,manufactureDate=9.5.2023,expireDate=6 months
+productId=0012,productName=Radhuni Garam Masala,productPrice=60,quantity=1,manufacturer=Square Consumer Products Limited,manufactureDate=7.5.2023,expireDate=2 years
+productId=0034,productName=Pran Pineapple Juice,productPrice=30,quantity=1,manufacturer=Pran Group,manufactureDate=21.6.2023,expireDate=6 months
+productId=0040,productName=P&G Ariel Detergent Powder,productPrice=110,quantity=1,manufacturer=P&G Bangladesh Ltd.,manufactureDate=1.4.2023,expireDate=2 years
+productId=0037,productName=Globe Pharmaceuticals Paracetamol,productPrice=25,quantity=1,manufacturer=Globe Pharmaceuticals Ltd.,manufactureDate=27.6.2023,expireDate=3 years
+productId=0029,productName=Radhuni Curry Powder,productPrice=40,quantity=1,manufacturer=Square Consumer Products Limited,manufactureDate=11.6.2023,expireDate=2 years
+productId=0020,productName=Square Pharmaceuticals Paracetamol,productPrice=30,quantity=1,manufacturer=Square Pharmaceuticals Ltd.,manufactureDate=26.5.2023,expireDate=3 years
+productId=0030,productName=Pran Mixed Fruit Jam,productPrice=70,quantity=1,manufacturer=Pran Group,manufactureDate=13.6.2023,expireDate=1 year

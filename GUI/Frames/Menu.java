@@ -159,7 +159,9 @@ public class Menu extends JFrame {
             public void mouseReleased(MouseEvent e) {
             }
         });
-        servicingButtonLabel.setBounds(347, 471, 347, 60);
+        servicingButtonLabel.setBounds(415, 400, 347, 60);
+        //servicingButtonLabel.setBackground(Color.red);
+        //servicingButtonLabel.setOpaque(true);
         mainPanel.add(servicingButtonLabel);
 
 
