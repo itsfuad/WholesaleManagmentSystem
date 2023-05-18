@@ -76,7 +76,6 @@ public class Cart extends JFrame{
                     String productId = model.getValueAt(selectedRow, 0).toString();
                     deleteProduct(productId);
                     model.removeRow(selectedRow);
-
                     updateCart();
                 }
             }
@@ -99,7 +98,6 @@ public class Cart extends JFrame{
                     if (quantityString != null && !quantityString.isEmpty() && !quantityString.equals("null")) {
                         quantity = Integer.parseInt(quantityString);
                         model.setValueAt(quantity + 1, selectedRow, 3); // Increase quantity by 1);
-                        updateTotal();
                         updateCart();
                     }
                 }
@@ -124,7 +122,6 @@ public class Cart extends JFrame{
                         quantity = Integer.parseInt(quantityString);
                         if (quantity > 1) {
                             model.setValueAt(quantity - 1, selectedRow, 3); // Decrease quantity by 1
-                            updateTotal();
                             updateCart();
                         }
                     }
@@ -163,7 +160,7 @@ public class Cart extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 dispose();
-                new Menu();
+                new Shop();
             }
         });
         jpanel.add(jlabelback);
