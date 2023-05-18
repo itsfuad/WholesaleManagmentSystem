@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import Validator.*;
-import Database.*;
+import src.Main;
 
 
 public class Signup extends JFrame implements MouseListener {
@@ -377,11 +377,8 @@ public class Signup extends JFrame implements MouseListener {
                     return;
                 }
 
-                // database write
-                Database db = new Database("users.txt");
-
                 // find if username already exists
-                if (db.match("username=" + username)) {
+                if (Main.UsersDatabase.match("username=" + username)) {
 
                     JOptionPane.showMessageDialog(jframe, "Username already exists");
                     return;
@@ -396,7 +393,7 @@ public class Signup extends JFrame implements MouseListener {
                  * + entityLicense +
                  */"\n";
 
-                db.add(record);
+                Main.UsersDatabase.add(record);
 
                 // JOptionPane.showMessageDialog(jframe, "Account created successfully");
                 showStep4();

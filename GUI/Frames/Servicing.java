@@ -6,8 +6,8 @@ import java.awt.event.*;
 import java.text.*;
 import java.util.*;
 
-import Database.*;
 import GUI.Checkpoint.*;
+import src.Main;
 
 public class Servicing extends JFrame{
     private JPanel jpanel;
@@ -61,15 +61,12 @@ public class Servicing extends JFrame{
 
 
                 //suppose product Id is 0001
-
-                Database db = new Database("products.txt");
-
-                String manufactureDate = db.getQueryResult("0001", "manufactureDate");
+                String manufactureDate = Main.ProductsDatabase.getQueryResult("0001", "manufactureDate");
 
                 System.out.println(manufactureDate);
 
                 String[] manufactureDateArray = manufactureDate.split(".");
-                String expireDate = db.getQueryResult("0001", "expireDate");
+                String expireDate = Main.ProductsDatabase.getQueryResult("0001", "expireDate");
 
                 int manufactureDay = Integer.parseInt(manufactureDateArray[0]);
                 int manufactureMonth = Integer.parseInt(manufactureDateArray[1]);
@@ -126,31 +123,6 @@ public class Servicing extends JFrame{
         });
         jpanel.add(jlabelback);
 
-        jlabelsignout=new JLabel("");
-        jlabelsignout.setIcon(new ImageIcon(""));
-        jlabelsignout.setBounds(803,47,161,45);
-        jlabelsignout.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                dispose();
-                Database db = new Database("loggedIn.txt");
-                db.clear();
-                new Login();
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-        });
-        jpanel.add(jlabelsignout);
 
 
 

@@ -135,13 +135,10 @@ public class Database {
             String manufactureDate = parts[5];
             String expiryDate = parts[6];
 
-            System.out.println("Product manufacturer: " + manufacturer);
-
-            Product prod = new Product(id.split("=")[1], name.split("=")[1], price.split("=")[1], manufacturer.split("=")[1], manufactureDate.split("=")[1], expiryDate.split("=")[1]);
+            Product prod = new Product(id.split("=")[1], name.split("=")[1], price.split("=")[1], "1", manufacturer.split("=")[1], manufactureDate.split("=")[1], expiryDate.split("=")[1]);
             products.add(prod);
         }
 
-        System.out.println("Size: " + products.size());
 
         return products;
     }
@@ -175,12 +172,12 @@ public class Database {
             String name = parts[1];
             String price = parts[2];
             String quantity = parts[3];
-            String manufactureDate = parts[4];
-            String expiryDate = parts[5];
+            String manufacture = parts[4];
+            String manufactureDate = parts[5];
+            String expiryDate = parts[6];
 
-            //System.out.println("Product name: " + nameParts[1]);
 
-            Product prod = new Product(id.split("=")[1], name.split("=")[1], price.split("=")[1], quantity.split("=")[1], manufactureDate.split("=")[1], expiryDate.split("=")[1]);
+            Product prod = new Product(id.split("=")[1], name.split("=")[1], price.split("=")[1], quantity.split("=")[1], manufacture.split("=")[1],  manufactureDate.split("=")[1], expiryDate.split("=")[1]);
             products.add(prod);
         }
 
@@ -300,8 +297,6 @@ public class Database {
         String[] lines = new String[this.data.size()];
         this.data.toArray(lines);
 
-        System.out.println("Updating " + QueryKey + " with " + QueryValue + " where primaryKey = " + PrimaryKey);
-
         // get which line the user is on
         int lineNum = -1;
         for (int i = 0; i < lines.length; i++) {
@@ -352,8 +347,6 @@ public class Database {
 
         productName = productName.toLowerCase();
 
-        System.out.println("Searching for " + productName + " in database");
-
         String[] lines = new String[this.data.size()];
         this.data.toArray(lines);
 
@@ -365,17 +358,18 @@ public class Database {
             String[] productNameParts = lineParts[1].split("=");
 
             if (productNameParts[1].toLowerCase().contains(productName)) {
-                System.out.println("Found " + productNameParts[1] + " in database");
 
                 String id = lineParts[0];
                 String name = lineParts[1];
-                String price = lineParts[3];
+                String price = lineParts[2];
+                String quantity = lineParts[3];
+                String manufacturer = lineParts[4];
                 String manufactureDate = lineParts[5];
                 String expiryDate = lineParts[6];
 
                 //System.out.println("Product name: " + nameParts[1]);
 
-                Product prod = new Product(id.split("=")[1], name.split("=")[1], price.split("=")[1], manufactureDate.split("=")[1], expiryDate.split("=")[1]);
+                Product prod = new Product(id.split("=")[1], name.split("=")[1], price.split("=")[1], quantity.split("=")[1],  manufacturer.split("=")[1], manufactureDate.split("=")[1], expiryDate.split("=")[1]);
                 products.add(prod);
             }
         }

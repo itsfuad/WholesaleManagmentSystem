@@ -4,17 +4,23 @@ import Database.*;
 import GUI.Checkpoint.*;
 import GUI.Frames.*;
 
+import javax.xml.crypto.Data;
+
 public class Main{
 
     public static String USERNAME;
     public static String fullName;
 
+    public static Database LoggedInDatabase = new Database("loggedIn.txt");
+    public static Database UsersDatabase = new Database("users.txt");
+    public static Database ProductsDatabase = new Database("products.txt");
+    public static Database CartDatabase = new Database("cart.txt");
+    public static Database purchaseHistoryDatabase = new Database("purchases.txt");
+
     public static void main(String[] args){
         System.out.println("Welcome to Wholesale Management System");
 
-        Database checkpoint = new Database("loggedIn.txt");
-
-        USERNAME = checkpoint.get();
+        USERNAME = LoggedInDatabase.get();
 
         if (USERNAME.equals("")){
             System.out.println("No user logged in");
@@ -24,10 +30,8 @@ public class Main{
 
         System.out.println("Verifying user: " + USERNAME);
 
-        Database db = new Database("users.txt");
-
-        String ret = db.getQueryResult(USERNAME, "username");
-        fullName = db.getQueryResult(USERNAME, "fullName");
+        String ret = UsersDatabase.getQueryResult(USERNAME, "username");
+        fullName = UsersDatabase.getQueryResult(USERNAME, "fullName");
 
         System.out.println("Found user: " + ret);
 

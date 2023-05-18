@@ -9,20 +9,11 @@ public class Product {
     public String manufacturingDate;
     public String expiryDate;
 
-    public Product(String productID, String productName, String productPrice, String manufacturingDate, String expiryDate){
+    public Product(String productID, String productName, String productPrice, String productQuantity, String productManufacturer, String manufacturingDate, String expiryDate){
         this.productID = productID;
         this.productName = productName;
         this.productPrice = productPrice;
-        this.productQuantity = "1";
-        this.manufacturingDate = manufacturingDate;
-        this.expiryDate = expiryDate;
-    }
-
-    public Product(String productID, String productName, String productPrice, String productManufacturer, String manufacturingDate, String expiryDate){
-        this.productID = productID;
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productQuantity = "1";
+        this.productQuantity = productQuantity;
         this.productManufacturer = productManufacturer;
         System.out.println(this.productManufacturer + " " + productManufacturer);
         this.manufacturingDate = manufacturingDate;

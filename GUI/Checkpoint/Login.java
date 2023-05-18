@@ -4,9 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import Database.*;
 import GUI.Frames.Menu;
 import Validator.*;
+import src.Main;
 
 public class Login extends JFrame {
     protected JPanel jpanel;
@@ -91,15 +91,14 @@ public class Login extends JFrame {
                 if (new Validator().validate(username, password) == false){
                     return;
                 }else {
-                    Database db = new Database("users.txt");
                     System.out.println("username=" + username + ",password=" + password);
-                    System.out.println(db.getQueryResult("fuad", "password"));
-                    if (db.match("username=" + username + ",password=" + password)) {
-                        Database loggedIn = new Database("loggedIn.txt");
-                        loggedIn.add(username);
+                    System.out.println(Main.UsersDatabase.getQueryResult("fuad", "password"));
+                    if (Main.UsersDatabase.match("username=" + username + ",password=" + password)) {
+                        Main.LoggedInDatabase.add(username);
+                        Main.USERNAME = username;
+                        Main.fullName = Main.UsersDatabase.getQueryResult(username, "fullName");
                         JOptionPane.showMessageDialog(null, "Login successful");
                         dispose();
-
                         new Menu();
                     } else {
                         JOptionPane.showMessageDialog(null, "Username or password is incorrect");

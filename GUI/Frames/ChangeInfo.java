@@ -4,10 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import Database.Database;
 import GUI.Checkpoint.*;
 import Validator.Validator;
-import src.*;
+import src.Main;
 
 
 public class ChangeInfo extends JFrame{
@@ -54,10 +53,9 @@ public class ChangeInfo extends JFrame{
         });
         mainPanel.add(backButtonLabel);
 
-        Database db = new Database("users.txt");
-        String address = db.getQueryResult(Main.USERNAME, "ownerAddress");
-        String shopName = db.getQueryResult(Main.USERNAME, "entityName");
-        String shopAddress = db.getQueryResult(Main.USERNAME, "entityAddress");
+        String address = Main.UsersDatabase.getQueryResult(Main.USERNAME, "ownerAddress");
+        String shopName = Main.UsersDatabase.getQueryResult(Main.USERNAME, "entityName");
+        String shopAddress = Main.UsersDatabase.getQueryResult(Main.USERNAME, "entityAddress");
 
         changeInfoPanel = new JPanel();
         changeInfoPanel.setLayout(null);
@@ -163,11 +161,10 @@ public class ChangeInfo extends JFrame{
 
                     if (new Validator().validateAll(new String[]{fullName, address, shopName, shopAddress})){
                         System.out.println("All fields are valid");
-                        Database db = new Database("users.txt");
-                        db.update(Main.USERNAME, "fullName", fullName);
-                        db.update(Main.USERNAME, "ownerAddress", address);
-                        db.update(Main.USERNAME, "entityName", shopName);
-                        db.update(Main.USERNAME, "entityAddress", shopAddress);
+                        Main.UsersDatabase.update(Main.USERNAME, "fullName", fullName);
+                        Main.UsersDatabase.update(Main.USERNAME, "ownerAddress", address);
+                        Main.UsersDatabase.update(Main.USERNAME, "entityName", shopName);
+                        Main.UsersDatabase.update(Main.USERNAME, "entityAddress", shopAddress);
                         JOptionPane.showMessageDialog(null, "Changes saved successfully");
                     }
                 }else{
@@ -176,8 +173,7 @@ public class ChangeInfo extends JFrame{
                     String newPassword = newPasswordField.getText();
                     String confirmPassword = confirmPasswordField.getText();
 
-                    Database db = new Database("users.txt");
-                    String password = db.getQueryResult(Main.USERNAME, "password");
+                    String password = Main.UsersDatabase.getQueryResult(Main.USERNAME, "password");
 
                     Validator validator = new Validator();
                     if (!validator.validatePassword(oldPassword)){
@@ -200,7 +196,7 @@ public class ChangeInfo extends JFrame{
 
                     System.out.println("All fields are valid");
 
-                    db.update(Main.USERNAME, "password", newPassword);
+                    Main.UsersDatabase.update(Main.USERNAME, "password", newPassword);
                     JOptionPane.showMessageDialog(null, "Password changed successfully");
                 }
 
@@ -354,6 +350,9 @@ public class ChangeInfo extends JFrame{
 
         logoutButtonLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Main.LoggedInDatabase.clear();
+                Main.CartDatabase.clear();
+                Main.purchaseHistoryDatabase.clear();
                 dispose();
                 new DefaultPage();
             }

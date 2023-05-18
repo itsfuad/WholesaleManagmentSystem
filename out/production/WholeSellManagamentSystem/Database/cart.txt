@@ -1,5 +1,1 @@
-productId=0001,productName=ACI Fresh Salt,productPrice=65,quantity=1,manufactureDate=22.5.2023,expireDate=1 year
-productId=0003,productName=Pran Frooto Juice,productPrice=25,quantity=1,manufactureDate=14.5.2023,expireDate=6 months
-productId=0005,productName=Nestle Nido Milk Powder,productPrice=1080,quantity=1,manufactureDate=1.5.2023,expireDate=1 year
-productId=0002,productName=Fresh Salt,productPrice=60,quantity=1,manufactureDate=10.5.2023,expireDate=1 year
-productId=0006,productName=Pran Miniket Rice,productPrice=69,quantity=1,manufactureDate=12.5.2023,expireDate=1 year
+productId=0001,productName=ACI Fresh Salt,productPrice=65,quantity=6,manufacturer=ACI food company,manufactureDate=22.5.2023,expireDate=1 year

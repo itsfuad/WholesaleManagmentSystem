@@ -116,7 +116,7 @@ public class Menu extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 dispose();
-                //new PurchaseHistory();
+                new purchaseHistory();
             }
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -132,6 +132,7 @@ public class Menu extends JFrame {
             }
         });
         purchaseHistoryButtonLabel.setBounds(533, 316, 341, 60);
+
         mainPanel.add(purchaseHistoryButtonLabel);
 
         servicingButtonLabel = new JLabel("");
@@ -156,30 +157,6 @@ public class Menu extends JFrame {
         });
         servicingButtonLabel.setBounds(347, 471, 347, 60);
         mainPanel.add(servicingButtonLabel);
-
-        changePasswordButtonLabel = new JLabel("");
-        changePasswordButtonLabel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                dispose();
-                //new ChangePassword();
-            }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-        });
-
-        changePasswordButtonLabel.setBounds(446, 397, 347, 60);
-        mainPanel.add(changePasswordButtonLabel);
 
 
         backgroundImageLabel =new JLabel();
