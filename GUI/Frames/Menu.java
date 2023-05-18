@@ -70,7 +70,7 @@ public class Menu extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 dispose();
-                new Shopping();
+                new Shop();
             }
             @Override
             public void mouseEntered(MouseEvent e) {
