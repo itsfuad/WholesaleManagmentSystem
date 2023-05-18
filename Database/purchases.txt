@@ -20,3 +20,4 @@ productId=0037,productName=Globe Pharmaceuticals Paracetamol,productPrice=25,qua
 productId=0029,productName=Radhuni Curry Powder,productPrice=40,quantity=1,manufacturer=Square Consumer Products Limited,manufactureDate=11.6.2023,expireDate=2 years
 productId=0020,productName=Square Pharmaceuticals Paracetamol,productPrice=30,quantity=1,manufacturer=Square Pharmaceuticals Ltd.,manufactureDate=26.5.2023,expireDate=3 years
 productId=0030,productName=Pran Mixed Fruit Jam,productPrice=70,quantity=1,manufacturer=Pran Group,manufactureDate=13.6.2023,expireDate=1 year
+productId=0002,productName=Fresh Salt,productPrice=60,quantity=1,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 year
