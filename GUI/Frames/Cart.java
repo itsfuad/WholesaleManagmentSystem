@@ -56,7 +56,7 @@ public class Cart extends JFrame{
                 Main.CartDatabase.clear();
                 JOptionPane.showMessageDialog(null, "You have purchased products!");
                 dispose();
-                new Menu();
+                new PaymentMethod1();
 
             }
         });
