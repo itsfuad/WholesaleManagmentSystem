@@ -2,7 +2,6 @@ package GUI.Frames;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.crypto.Data;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
@@ -162,11 +161,7 @@ public class Cart extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 dispose();
-                try {
-                    new Shop();
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
-                }
+                new Menu();
             }
         });
         jpanel.add(jlabelback);

@@ -13,9 +13,8 @@ import src.Main;
 
 public class Servicing extends JFrame{
     private JPanel jpanel;
-    private JLabel jlabel,jlabel1,jlabelback,jlabelsignout;
-    private JTextField jtextfield,jtextfield1,jtextfield2;
-    private JTextArea textArea;
+    private JLabel jlabel,jlabel1,jlabelback;
+    private JTextField jtextfield;
 
     Servicing(){
         setTitle("Servicing");

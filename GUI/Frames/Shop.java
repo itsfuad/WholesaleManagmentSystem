@@ -29,10 +29,6 @@ public class Shop extends JFrame{
 	
 	private JPanel mainPanel,productPanel, viewDetailsPanel;
 	private JTextField searchField;
-	private List<Product> selectedProducts = new ArrayList<>();
-	private int x_axis_product=0;
-	private int y_axis_product=0;
-	private int x_axis_productpanel=90;
 	private ArrayList<Product> cart = new ArrayList<>();
 	private ArrayList<Product> products = Main.ProductsDatabase.getAllProducts();
 	private Timer swipeTimer;
@@ -42,7 +38,6 @@ public class Shop extends JFrame{
 
 	//round circle to show the number of items in the cart
 	private JLabel notificationLabel;
-	private JPanel circlePanel;
 
 	Shop() throws InterruptedException {
 		
