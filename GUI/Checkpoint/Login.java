@@ -35,7 +35,7 @@ public class Login extends JFrame {
         jlabel1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                jframe.dispose();
+                dispose();
                 new Signup();
             }
             @Override

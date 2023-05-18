@@ -26,7 +26,7 @@ import Types.Product;
 
 public class Shop extends JFrame{
 	
-	private JPanel mainPanel,productPanel,notificationPanel;
+	private JPanel mainPanel,productPanel, viewDetailsPanel;
 	private JTextField searchField;
 	private List<Product> selectedProducts = new ArrayList<>();
 	private int x_axis_product=0;
@@ -38,46 +38,66 @@ public class Shop extends JFrame{
 	private Timer swipeTimer;
     private int swipeDirection = 0;
 
-
-	
-	
-
 	
 	Shop(){
 		
 		createFrame("Shopping",0,0,1016,638);
 		initializeShopComponents();
-		for (int i = 0; i < 10; i++) {
-            setLabel(productPanel,products.get(i).productName,""/*products.get(i).productImage@fuad*/,x_axis_product,y_axis_product,140,160);//@fuad add image
-            x_axis_product += 166;
-            finalI = i;
-            if (i == 4) {
-            	x_axis_product = 0;
-                y_axis_product += 171;
-            }
-        }
-		
-		mainPanel.add(productPanel);
-		mainPanel.add(notificationPanel);
+
+
+
+
 		mainPanel.add(searchField);
-		setLabel(mainPanel,"signout","",802,48,160,43);//signout
-		setLabel(mainPanel,"back","",39,40,60,60);//back
-		setLabel(mainPanel,"cart","",684, 107, 41, 43);//cart
-		setLabel(mainPanel,"search","",636, 107, 41, 43);//search
-		setLabel(mainPanel,"addtocart","",751, 530, 165, 34);//addtocart
-		setLabel(mainPanel,"swipeleft","",0,100,100,500);//swipeleft
-		setLabel(mainPanel,"swiperight","",900,100,100,500);//swiperight
-		setLabel(mainPanel,"","E:\\\\Git\\\\WholesaleManagmentSystem\\\\res\\\\Shopping1.png",0,0,1000,600);//bg
+		//setLabel(mainPanel,"signout","",802,48,160,43);//signout
+		setLabel(mainPanel,"back","",0,0,60,60);//back
+		setLabel(mainPanel,"cart","",684, 40, 60, 60);//cart
+		setLabel(mainPanel,"search","",636, 40, 60, 60);//search
+		setLabel(mainPanel,"Add to Cart","",20, 530, 60, 60);//bg
+
+		viewDetailsPanel = new JPanel();
+		viewDetailsPanel.setBounds(0, 0, 300, 600);
+		//viewDetailsPanel.setBackground(Color.CYAN);
+		mainPanel.add(viewDetailsPanel);
+
+		productPanel = new JPanel();
+		productPanel.setBounds(300, 120, 700, 450);
+		//productPanel.setBackground(Color.MAGENTA);
+		productPanel.setLayout(new GridLayout(0, 3, 20, 20));
+		productPanel.setOpaque(true);
+		productPanel.setBackground(new Color(89, 200, 210, 23));
+
+		//mainPanel.add(productPanel);
+
+		//make a grid layout whre each product is added, 3 products per row. Columns are added dynamically. productPanel is the panel where the products are added. each product has fixed size.
+		//add a scroll bar to the productPanel for overflow
+		JScrollPane scrollPane = new JScrollPane(productPanel);
+		scrollPane.setBounds(300, 150, 700, 450);
+		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		mainPanel.add(scrollPane);
+
+		//create products
+		for (int i = 0; i < products.size(); i++) {
+			JLabel product = new JLabel(products.get(i).productName);
+			//set size
+			product.setPreferredSize(new Dimension(200, 200));
+			//set background
+			product.setBackground(new Color(255, 255, 255, 37));
+			product.setOpaque(false);
+			productPanel.add(product);
+		}
+
+		setLabel(mainPanel, "", "res\\Shopping1.png", 0, 0, 1016, 638);//bg
+
+
+		//setLabel(mainPanel,"","res\\Shopping1.png",0,0,1000,600);//bg
 		readExistingCart();
 
-        
-        
-        
 		this.setVisible(true);
 	}
-	
-	
-	
+
+
+
 	public void setLabel(JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
 		JLabel jlabel=new JLabel(new ImageIcon(imageDirectory));
 		jlabel.setText(setText);
@@ -159,35 +179,7 @@ public class Shop extends JFrame{
 		            	    System.out.println(selectedProducts);
 		            	}
             }
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            	if (setText.equals("swipeleft")) {
-                    startSwipeAnimation(-1, 20); // Move 5 pixels to the left every 0.25 seconds
-                }
-                if (setText.equals("swiperight")) {
-                    startSwipeAnimation(1, 20); // Move 5 pixels to the right every 0.25 seconds
-                }
-        	
-            }
-            @Override
-            public void mouseExited(MouseEvent e) {
-            	 System.out.println(setText + " exited");
-            	 if (setText.equals("swipeleft") || setText.equals("swiperight")) {
-                     stopSwipeAnimation();
-                 }
-             }
-  
-        	
-         
-            
-            @Override
-            public void mousePressed(MouseEvent e) {
-            	
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            	
-            }
+
         });
         jlabel.setBounds(x_axis,y_axis,width,height);
         setPanel.add(jlabel);
@@ -214,17 +206,9 @@ public class Shop extends JFrame{
 			searchField=new JTextField();
 	        searchField.setCaretColor(Color.ORANGE);
 	        searchField.setBorder(null);
-	        searchField.setBounds(343,118,243,20);
-			productPanel = new JPanel();
-			productPanel.setOpaque(false);
-	        productPanel.setBounds(x_axis_productpanel, 166, 2000, 360);
-	        productPanel.setLayout(null);
-	        notificationPanel = new JPanel();
-	        notificationPanel.setBounds(90, 535, 216, 27);
-	        notificationPanel.setLayout(null);
+	        searchField.setBounds(343,60,243,20);
+
 	        products = new Database("products.txt").getAllProducts();
-	       
-	        
 	}
 	
 	 public static void main(String[] args){
