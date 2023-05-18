@@ -130,13 +130,14 @@ public class Database {
             String[] parts = line.split(",");
             String id = parts[0];
             String name = parts[1];
+            String manufacturer = parts[4];
             String price = parts[3];
             String manufactureDate = parts[5];
             String expiryDate = parts[6];
 
-            //System.out.println("Product name: " + nameParts[1]);
+            System.out.println("Product manufacturer: " + manufacturer);
 
-            Product prod = new Product(id.split("=")[1], name.split("=")[1], price.split("=")[1], manufactureDate.split("=")[1], expiryDate.split("=")[1]);
+            Product prod = new Product(id.split("=")[1], name.split("=")[1], price.split("=")[1], manufacturer.split("=")[1], manufactureDate.split("=")[1], expiryDate.split("=")[1]);
             products.add(prod);
         }
 

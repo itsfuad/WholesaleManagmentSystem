@@ -59,12 +59,16 @@ public class Shop extends JFrame{
 		//viewDetailsPanel.setBackground(Color.CYAN);
 		mainPanel.add(viewDetailsPanel);
 
+		showDetails(products.get(0));
+
 		productPanel = new JPanel();
 		productPanel.setBounds(300, 120, 700, 450);
 		//productPanel.setBackground(Color.MAGENTA);
 		productPanel.setLayout(new GridLayout(0, 3, 20, 20));
 		productPanel.setOpaque(true);
-		productPanel.setBackground(new Color(89, 200, 210, 23));
+		productPanel.setBackground(new Color(255, 233, 82, 255));
+		//make transparent
+		productPanel.setOpaque(false);
 
 		//mainPanel.add(productPanel);
 
@@ -72,8 +76,13 @@ public class Shop extends JFrame{
 		//add a scroll bar to the productPanel for overflow
 		JScrollPane scrollPane = new JScrollPane(productPanel);
 		scrollPane.setBounds(300, 150, 700, 450);
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		//remove border
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
+		//scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		//make transparent
+		scrollPane.setOpaque(false);
+		scrollPane.getViewport().setOpaque(false);
 		mainPanel.add(scrollPane);
 
 		//create products
@@ -82,8 +91,8 @@ public class Shop extends JFrame{
 			//set size
 			product.setPreferredSize(new Dimension(200, 200));
 			//set background
-			product.setBackground(new Color(255, 255, 255, 37));
-			product.setOpaque(false);
+			product.setBackground(new Color(0, 0, 0, 118));
+			product.setOpaque(true);
 			productPanel.add(product);
 		}
 
@@ -96,6 +105,43 @@ public class Shop extends JFrame{
 		this.setVisible(true);
 	}
 
+	public void showDetails(Product product){
+		viewDetailsPanel.removeAll();
+
+		viewDetailsPanel.setLayout(null);
+
+		JLabel productName = new JLabel(product.productName);
+		productName.setBounds(20, 260, 300, 50);
+		productName.setFont(new Font("Arial", Font.BOLD, 20));
+		productName.setForeground(Color.WHITE);
+		viewDetailsPanel.add(productName);
+
+		JLabel productPrice = new JLabel("Price: " + product.productPrice);
+		productPrice.setBounds(20, 320, 300, 20);
+		productPrice.setFont(new Font("Arial", Font.BOLD, 16));
+		productPrice.setForeground(Color.WHITE);
+		viewDetailsPanel.add(productPrice);
+
+		JLabel productManufacturer = new JLabel("Manufacturer: " + product.productManufacturer);
+		productManufacturer.setBounds(20, 350, 300, 20);
+		productManufacturer.setFont(new Font("Arial", Font.BOLD, 16));
+		productManufacturer.setForeground(Color.WHITE);
+		viewDetailsPanel.add(productManufacturer);
+
+		JLabel productManufactureDate = new JLabel("Manufacture Date: " + product.manufacturingDate);
+		productManufactureDate.setBounds(20, 380, 300, 20);
+		productManufactureDate.setFont(new Font("Arial", Font.BOLD, 16));
+		productManufactureDate.setForeground(Color.WHITE);
+		viewDetailsPanel.add(productManufactureDate);
+
+		JLabel productExpiryDate = new JLabel("Expiry Date: " + product.expiryDate);
+		productExpiryDate.setBounds(20, 410, 300, 20);
+		productExpiryDate.setFont(new Font("Arial", Font.BOLD, 16));
+		productExpiryDate.setForeground(Color.WHITE);
+		viewDetailsPanel.add(productExpiryDate);
+
+		mainPanel.revalidate();
+	}
 
 
 	public void setLabel(JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
