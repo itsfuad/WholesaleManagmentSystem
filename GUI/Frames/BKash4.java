@@ -1,12 +1,15 @@
 package GUI.Frames;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 public class BKash4 extends JFrame{
 	
@@ -19,7 +22,7 @@ public class BKash4 extends JFrame{
 		createFrame("Payment Successful",0,0,1016,638);
 		initializePaymentMethodComponents();
 
-		setLabel("paymentdetails",mainPanel,"Payment successful. Deducted balance -"+Cart.total+"tk.","",350, 250, 300, 30);//paymentdetails
+		setLabel("paymentdetails",mainPanel,"Payment successful. Deducted balance -"+Cart.total+"tk.","",275, 250, 450, 30);//paymentdetails
 		setLabel("menu",mainPanel,"","",405, 285, 170, 30);//go to menu
 		setLabel("bg",mainPanel, "", "res\\BKash4.png", 0, 0, 1000, 600);//bg
 
@@ -31,6 +34,11 @@ public class BKash4 extends JFrame{
 	public void setLabel(String selectedLabel,JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
 		JLabel jlabel=new JLabel(new ImageIcon(imageDirectory));
 		jlabel.setText(setText);
+		if(selectedLabel.equals("paymentdetails")) { 
+			jlabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+			jlabel.setHorizontalAlignment(SwingConstants.CENTER);
+			jlabel.setVerticalAlignment(SwingConstants.CENTER);
+		    jlabel.setForeground(Color.white);}
         jlabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

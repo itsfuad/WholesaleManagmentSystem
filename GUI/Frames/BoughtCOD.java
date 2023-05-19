@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import src.Main;
 @SuppressWarnings("serial")
@@ -39,8 +40,9 @@ public class BoughtCOD extends JFrame{
 		jlabel.setText(setText);
 		if(selectedLabel.equals("paymentdetails")) { 
 		jlabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		  
-	        jlabel.setForeground(Color.white);}
+		jlabel.setHorizontalAlignment(SwingConstants.CENTER);
+		jlabel.setVerticalAlignment(SwingConstants.CENTER);
+	    jlabel.setForeground(Color.white);}
         jlabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
