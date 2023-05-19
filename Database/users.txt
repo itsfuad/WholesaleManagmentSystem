@@ -9,4 +9,4 @@ username=uiui,password=1234uiui,fullName=ewf,ownerAddress=fefwffffffffffff,owner
 username=fasfasfsasfgdfhg,password=dfhdfhfdh6557567,fullName=sfasf,ownerAddress=asfasfaasf,ownerPhone=asfasfa,entityName=sfaasf,entityAddress=saafasffsa,entityPhone=asfasfafasf
 username=opu123,password=Hello123,fullName=Fuad Hasan,ownerAddress=Chayabithi,ownerPhone=1221211224,entityName=Opu food shop,entityAddress=Jorpukur,entityPhone=eq2q2
 username=legndarypronoob,password=mahdi1234,fullName=Md Mahdi Hossain,ownerAddress=Malibagh,Dhaka,ownerPhone=01842562964,entityName=Super Style,entityAddress=Mouchak,entityPhone=01842562964
-username=legendarypronoob,password=mahdi1234,fullName=Md Mahdi Hossain,ownerAddress=Malibagh,Dhaka,ownerPhone=01842562964,entityName=Super Style,entityAddress=Mouchak,entityPhone=01842562964
+username=legendarypronoob,password=mahdi1234,fullName=Md Mahdi Hossain,ownerAddress=Malibagh,Dhaka,ownerPhone=01842562964,entityName=Super Style Shop,entityAddress=Mouchak,entityPhone=01842562964

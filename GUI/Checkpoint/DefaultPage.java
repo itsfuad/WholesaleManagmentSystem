@@ -50,7 +50,7 @@ public class DefaultPage extends JFrame implements MouseListener{
         signupButton.setBorder(BorderFactory.createEmptyBorder());
         signupButton.setContentAreaFilled(true);
         signupButton.addActionListener(e -> {
-            //new SignUp();
+            new Signup();
             this.dispose();
         });
         signupButton.addMouseListener(this);
