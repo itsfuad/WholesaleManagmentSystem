@@ -1,57 +1,46 @@
 package GUI.Frames;
-
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.*;
-import Database.Database;
-import GUI.Checkpoint.DefaultPage;
-import Types.Product;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import GUI.ButtonDesigner;
+@SuppressWarnings("serial")
 public class PaymentMethod2 extends JFrame{
 	
-	private JPanel mainPanel,productPanel, viewDetailsPanel;
-	private int x_axis_product=0;
-	private int y_axis_product=0;
-	private int x_axis_productpanel=90;
-
-
-	
+	private JPanel mainPanel;
 	PaymentMethod2(){
 		
-		createFrame("PaymentMethod2",0,0,1016,638);
+		createFrame("Payment",0,0,1016,638);
 		initializePaymentMethodComponents();
 
-		setLabel(mainPanel,"","",400, 285, 152, 30);//go to Bkash1
-		setLabel(mainPanel, "", "res\\PaymentMethod2.png", 0, 0, 1000, 600);//bg
+		setLabel("back",mainPanel,"","",42, 41, 120, 40);//back
+		setLabel("bkash",mainPanel,"","",415, 290, 170, 30);//bkash
+		setLabel("bg",mainPanel, "", "res\\PaymentMethod2.png", 0, 0, 1000, 600);//bg
 
 
 		this.setVisible(true);
 	}
 
 
-	public void setLabel(JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
+	public void setLabel(String selectedLabel,JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
 		JLabel jlabel=new JLabel(new ImageIcon(imageDirectory));
 		jlabel.setText(setText);
+		if(selectedLabel.equals("back")) {
+			jlabel = new ButtonDesigner("Back", Color.white, new Color(0, 0, 0), new Color(40, 40, 40), 16).getLabel();}
         jlabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
 		            
-	
-		            	if(setText.equals("")){
+		            	if(selectedLabel.equals("back")){
+		                    dispose();
+		                    new PaymentMethod1();
+		            	}
+		            	if(selectedLabel.equals("bkash")){
 		                    dispose();
 		                    new BKash1();
 		            	}
@@ -90,7 +79,7 @@ public class PaymentMethod2 extends JFrame{
 	}
 	
 	public void createFrame(String setTitle,int x_axis,int y_axis,int width,int height) {
-		 	setTitle("Bought by COD");
+		 	setTitle(setTitle);
 	        setSize(new Dimension(width,height));
 	        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	        setResizable(false);

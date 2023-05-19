@@ -1,17 +1,3 @@
 productId=0001,productName=ACI Fresh Salt,productPrice=65,quantity=1,manufacturer=ACI food company,manufactureDate=22.5.2023,expireDate=1 year
-productId=0002,productName=Fresh Salt,productPrice=60,quantity=4,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 day
-productId=0008,productName=Square Toiletries Soap,productPrice=30,quantity=1,manufacturer=Square Toiletries Ltd.,manufactureDate=8.5.2023,expireDate=2 years
 productId=0002,productName=Fresh Salt,productPrice=60,quantity=1,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 day
-productId=0002,productName=Fresh Salt,productPrice=60,quantity=7,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 day
-productId=0002,productName=Fresh Salt,productPrice=60,quantity=2,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 day
-productId=0004,productName=Ispahani Mirzapore Tea,productPrice=210,quantity=3,manufacturer=Ispahani Tea Limited,manufactureDate=10.5.2023,expireDate=2 years
-productId=0003,productName=Pran Frooto Juice,productPrice=25,quantity=1,manufacturer=Pran Group,manufactureDate=14.5.2023,expireDate=6 months
-productId=0005,productName=Nestle Nido Milk Powder,productPrice=1080,quantity=1,manufacturer=Nestle Bangladesh Ltd.,manufactureDate=1.5.2023,expireDate=1 year
-productId=0009,productName=Kazi Farmas Honey,productPrice=340,quantity=5,manufacturer=Kazi Farms Group,manufactureDate=6.5.2023,expireDate=1 year
-productId=0030,productName=Pran Mixed Fruit Jam,productPrice=70,quantity=2,manufacturer=Pran Group,manufactureDate=13.6.2023,expireDate=1 year
-productId=0033,productName=Nestle Maggi Masala,productPrice=20,quantity=1,manufacturer=Nestle Bangladesh Ltd.,manufactureDate=19.6.2023,expireDate=1 year
-productId=0007,productName=Pepsi Soft Drink,productPrice=40,quantity=4,manufacturer=PepsiCo,manufactureDate=9.5.2023,expireDate=6 months
-productId=0008,productName=Square Toiletries Soap,productPrice=25,quantity=18,manufacturer=Square Toiletries Ltd.,manufactureDate=8.5.2023,expireDate=2 years
-productId=0002,productName=Fresh Salt,productPrice=40,quantity=2,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 day
-productId=0017,productName=Dabur Amla Hair Oil,productPrice=160,quantity=3,manufacturer=Dabur Bangladesh Ltd.,manufactureDate=21.5.2023,expireDate=3 years
-productId=0015,productName=ACI Pure Soyabean Oil,productPrice=120,quantity=3,manufacturer=ACI Limited,manufactureDate=18.5.2023,expireDate=2 years
+productId=0004,productName=Ispahani Mirzapore Tea,productPrice=210,quantity=1,manufacturer=Ispahani Tea Limited,manufactureDate=10.5.2023,expireDate=2 years
