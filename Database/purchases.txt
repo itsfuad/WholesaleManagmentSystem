@@ -1,10 +1,2 @@
-productId=0012,productName=Radhuni Garam Masala,productPrice=60,quantity=1,manufacturer=Square Consumer Products Limited,manufactureDate=7.5.2023,expireDate=2 years
-productId=0013,productName=Pran Tomato Ketchup,productPrice=75,quantity=1,manufacturer=Pran Group,manufactureDate=15.5.2023,expireDate=1 year
-productId=0014,productName=Fresh Atta,productPrice=52,quantity=1,manufacturer=Fresh food company,manufactureDate=16.5.2023,expireDate=1 year
-productId=0015,productName=ACI Pure Soyabean Oil,productPrice=120,quantity=1,manufacturer=ACI Limited,manufactureDate=18.5.2023,expireDate=2 years
 productId=0001,productName=ACI Fresh Salt,productPrice=65,quantity=1,manufacturer=ACI food company,manufactureDate=22.5.2023,expireDate=1 year
-productId=0005,productName=Nestle Nido Milk Powder,productPrice=1080,quantity=1,manufacturer=Nestle Bangladesh Ltd.,manufactureDate=1.5.2023,expireDate=1 year
-productId=0003,productName=Pran Frooto Juice,productPrice=25,quantity=1,manufacturer=Pran Group,manufactureDate=14.5.2023,expireDate=6 months
-productId=0038,productName=Pran Orange Drink,productPrice=Soft Drink,quantity=35,manufacturer=Pran Group,manufactureDate=29.6.2023,expireDate=6 months
-productId=0007,productName=Pepsi Soft Drink,productPrice=Soft Drink,quantity=40,manufacturer=PepsiCo,manufactureDate=9.5.2023,expireDate=6 months
 productId=0002,productName=Fresh Salt,productPrice=60,quantity=1,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 day

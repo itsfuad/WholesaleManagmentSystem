@@ -23,7 +23,7 @@ public class Cart extends JFrame{
 
     JLabel totalLabel;
 
-    private int total = 0;
+    public  static int total ;
     public Cart() {
         
         setTitle("Cart");

@@ -19,7 +19,7 @@ public class BKash4 extends JFrame{
 		createFrame("Payment Successful",0,0,1016,638);
 		initializePaymentMethodComponents();
 
-		setLabel("paymentdetails",mainPanel,"Payment successful. Deducted balance -"/*+total*/,"",350, 250, 300, 30);//paymentdetails
+		setLabel("paymentdetails",mainPanel,"Payment successful. Deducted balance -"+Cart.total+"tk.","",350, 250, 300, 30);//paymentdetails
 		setLabel("menu",mainPanel,"","",405, 285, 170, 30);//go to menu
 		setLabel("bg",mainPanel, "", "res\\BKash4.png", 0, 0, 1000, 600);//bg
 

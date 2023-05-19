@@ -1,12 +1,16 @@
 package GUI.Frames;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import src.Main;
 @SuppressWarnings("serial")
 public class BoughtCOD extends JFrame{
 	
@@ -20,8 +24,8 @@ public class BoughtCOD extends JFrame{
 		createFrame("Cash On Delivery",0,0,1016,638);
 		initializePaymentMethodComponents();
 
-		setLabel("paymentdetails",mainPanel,/*name*/" your product will be delivered to "/*+shopaddress*/+"soon.","",350, 230, 300, 30);//coddetails
-		setLabel("paymentdetails",mainPanel,"Please have "/*+total*/+" tk at ready.","",300, 250, 400, 30);//coddetails
+		setLabel("paymentdetails",mainPanel,Main.fullName+" your product will be delivered soon.","",325, 230, 510, 30);//coddetails
+		setLabel("paymentdetails",mainPanel,"Please have "+Cart.total+" tk at ready.","",300, 250, 400, 30);//coddetails
 		setLabel("menu",mainPanel,"","",405, 285, 170, 30);//go to menu
 		setLabel("bg",mainPanel, "", "res\\BoughtCOD.png", 0, 0, 1000, 600);//bg
 
@@ -33,6 +37,10 @@ public class BoughtCOD extends JFrame{
 	public void setLabel(String selectedLabel,JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
 		JLabel jlabel=new JLabel(new ImageIcon(imageDirectory));
 		jlabel.setText(setText);
+		if(selectedLabel.equals("paymentdetails")) { 
+		jlabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		  
+	        jlabel.setForeground(Color.white);}
         jlabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
