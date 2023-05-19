@@ -29,6 +29,7 @@ public class BoughtCOD extends JFrame{
 		initializePaymentMethodComponents();
 
 		setLabel("paymentdetails",mainPanel,Main.fullName+" your product will be delivered soon.","",325, 230, 510, 30);//coddetails
+		
 		setLabel("paymentdetails",mainPanel,"Please have "+Cart.total+" tk at ready.","",300, 250, 400, 30);//coddetails
 		setLabel("menu",mainPanel,"","",405, 285, 170, 30);//go to menu
 		setLabel("bg",mainPanel, "", "res\\BoughtCOD.png", 0, 0, 1000, 600);//bg
@@ -50,6 +51,7 @@ public class BoughtCOD extends JFrame{
 		jlabel.setText(setText);
 		if(selectedLabel.equals("paymentdetails")) { 
 		jlabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		//aligning text to center
 		jlabel.setHorizontalAlignment(SwingConstants.CENTER);
 		jlabel.setVerticalAlignment(SwingConstants.CENTER);
 	    jlabel.setForeground(Color.white);}
