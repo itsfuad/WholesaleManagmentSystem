@@ -330,6 +330,21 @@ public class Signup extends JFrame implements MouseListener {
                 fullName = usernameField.getText();
                 ownerAddress = userAddressField.getText();
                 ownerPhone = userPhoneNumberField.getText();
+
+                //validate phone number
+                if (ownerPhone.length() != 11) {
+                    JOptionPane.showMessageDialog(jframe, "Invalid Phone Number");
+                    return;
+                }
+
+                //check if phone number is a number
+                try {
+                    Long.parseLong(ownerPhone);
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(jframe, "Invalid Phone Number");
+                    return;
+                }
+
                 // ownerEmail = emailField.getText();
 
                 if (fullName.equals("") || ownerAddress.equals("") || ownerPhone.equals("")) {
@@ -351,6 +366,21 @@ public class Signup extends JFrame implements MouseListener {
                 entityPhone = shopPhoneNumberField.getText();
                 // entityEmail = entityEmailField.getText();
                 // entityLicense = jtextfield5.getText();
+
+                //validate phone number
+                if (entityPhone.length() != 11) {
+                    JOptionPane.showMessageDialog(jframe, "Invalid Phone Number");
+                    return;
+                }
+
+                //check if phone number is a number
+                try {
+                    Long.parseLong(entityPhone);
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(jframe, "Invalid Phone Number");
+                    return;
+                }
+
 
                 if (entityName.equals("") || entityAddress.equals("") || entityPhone.equals("")
                     /* || entityEmail.equals("") || entityLicense.equals("") */) {
@@ -377,6 +407,10 @@ public class Signup extends JFrame implements MouseListener {
                     return;
                 }
 
+                if (new Validator().validatePassword(confirmpassword) == false) {
+                    return;
+                }
+
                 // find if username already exists
                 if (Main.UsersDatabase.match("username=" + username)) {
 
@@ -384,14 +418,17 @@ public class Signup extends JFrame implements MouseListener {
                     return;
                 }
 
+                if (!password.equals(confirmpassword)) {
+                    JOptionPane.showMessageDialog(jframe, "Passwords do not match");
+                    return;
+                }
+
                 String record = "username=" + username + ",password=" + password
                         + ",fullName=" + fullName + ",ownerAddress=" + ownerAddress + ",ownerPhone=" + ownerPhone
                         + /* ",ownerEmail=" + ownerEmail + */ ",entityName=" + entityName + ",entityAddress="
                         + entityAddress
-                        + ",entityPhone=" + entityPhone + /*
-                 * ",entityEmail=" + entityEmail + ",entityLicense="
-                 * + entityLicense +
-                 */"\n";
+                        + ",entityPhone=" + entityPhone;
+
 
                 Main.UsersDatabase.add(record);
 
