@@ -72,6 +72,18 @@ public class purchaseHistory extends JFrame{
                 }
             });
             jpanel.add(backButton);
+            
+            JLabel clearall = new ButtonDesigner("Reset", Color.white, new Color(255,0,0), new Color(230,0,0), 16).getLabel();
+            clearall.setBounds(850, 520, 120, 40);
+            clearall.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    dispose();
+                    Main.purchaseHistoryDatabase.clear();
+                    new purchaseHistory();
+                }
+            });
+            jpanel.add(clearall);
 
             backgroundImageLabel = new JLabel();
             backgroundImageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
