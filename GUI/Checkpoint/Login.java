@@ -53,28 +53,13 @@ public class Login extends JFrame {
         });
 
         jtextfield = new JTextField();
-        jtextfield.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                jlabel3.setText("");
-            }
-        });
 
-        jlabel3=new JLabel();
-        jlabel3.setText("Enter UserID");
-        jlabel3.setBounds(415, 260, 214, 29);
-        jpanel.add(jlabel3);
-
-        jlabel4=new JLabel();
-        jlabel4.setText("Enter Password");
-        jlabel4.setBounds(415, 331, 214, 29);
-        jpanel.add(jlabel4);
         jtextfield.setFont(new Font("Tahoma", Font.BOLD, 11));
         jtextfield.setBorder(null);
         jtextfield.setCaretColor(new Color(30, 144, 255));
         jtextfield.setDisabledTextColor(new Color(240, 240, 240));
         jtextfield.setOpaque(false);
-        jtextfield.setBounds(415, 260, 214, 29);
+        jtextfield.setBounds(420, 260, 214, 29);
         jpanel.add(jtextfield);
         jtextfield.setColumns(10);
         jlabel1.setBounds(400, 385, 70, 30);
@@ -123,16 +108,11 @@ public class Login extends JFrame {
         jpanel.add(jlabel2);
 
         jpasswordfield = new JPasswordField();
-        jpasswordfield.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                jlabel4.setText("");
-            }
-        });
+
         jpasswordfield.setCaretColor(new Color(30, 144, 255));
         jpasswordfield.setBorder(null);
         jpasswordfield.setOpaque(false);
-        jpasswordfield.setBounds(415, 331, 214, 29);
+        jpasswordfield.setBounds(420, 331, 214, 29);
         jpanel.add(jpasswordfield);
 
 

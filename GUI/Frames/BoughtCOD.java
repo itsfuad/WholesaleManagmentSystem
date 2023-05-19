@@ -5,12 +5,15 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import Types.Product;
 import src.Main;
 @SuppressWarnings("serial")
 public class BoughtCOD extends JFrame{
@@ -30,6 +33,13 @@ public class BoughtCOD extends JFrame{
 		setLabel("menu",mainPanel,"","",405, 285, 170, 30);//go to menu
 		setLabel("bg",mainPanel, "", "res\\BoughtCOD.png", 0, 0, 1000, 600);//bg
 
+
+		ArrayList<Product> addedProducts = Main.CartDatabase.getCart();
+		for (Product item : addedProducts) {
+			System.out.println("Quantity: " + item.productQuantity);
+			Main.purchaseHistoryDatabase.add("productId=" + item.productID + ",productName=" + item.productName + ",productPrice=" + item.productPrice + ",quantity=" + (item.productQuantity == null ? "1" : item.productQuantity) + ",manufacturer=" + item.productManufacturer + ",manufactureDate=" + item.manufacturingDate + ",expireDate=" + item.expiryDate);
+		}
+		Main.CartDatabase.clear();
 
 		this.setVisible(true);
 	}

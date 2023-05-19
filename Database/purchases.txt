@@ -1,0 +1,2 @@
+productId=0002,productName=Fresh Salt,productPrice=60,quantity=5,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 day
+productId=0003,productName=Pran Frooto Juice,productPrice=25,quantity=1,manufacturer=Pran Group,manufactureDate=14.5.2023,expireDate=6 months

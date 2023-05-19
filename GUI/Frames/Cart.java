@@ -51,11 +51,12 @@ public class Cart extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 ArrayList<Product> addedProducts = Main.CartDatabase.getCart();
-                for (Product item : addedProducts) {
-                    System.out.println("Quantity: " + item.productQuantity);
-                    Main.purchaseHistoryDatabase.add("productId=" + item.productID + ",productName=" + item.productName + ",productPrice=" + item.productPrice + ",quantity=" + (item.productQuantity == null ? "1" : item.productQuantity) + ",manufacturer=" + item.productManufacturer + ",manufactureDate=" + item.manufacturingDate + ",expireDate=" + item.expiryDate);
+                
+                if (addedProducts.size() == 0){
+                    JOptionPane.showMessageDialog(null, "Please add products to the cart first!");
+                    return;
                 }
-                Main.CartDatabase.clear();
+               
                 //JOptionPane.showMessageDialog(null, "You have purchased products!");
                 dispose();
                 new PaymentMethod1();
