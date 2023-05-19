@@ -1,50 +1,36 @@
 package GUI.Frames;
 
-import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.*;
-import Database.Database;
-import GUI.Checkpoint.DefaultPage;
-import Types.Product;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+@SuppressWarnings("serial")
 public class BoughtCOD extends JFrame{
 	
-	private JPanel mainPanel,productPanel, viewDetailsPanel;
-	private int x_axis_product=0;
-	private int y_axis_product=0;
-	private int x_axis_productpanel=90;
+	private JPanel mainPanel;
+
 
 
 	
 	BoughtCOD(){
 		
-		createFrame("Shopping",0,0,1016,638);
+		createFrame("Cash On Delivery",0,0,1016,638);
 		initializePaymentMethodComponents();
 
-		setLabel(mainPanel,"","",400, 285, 152, 30);//go to menun
-		setLabel(mainPanel,"You have purchsed product.It will be delivered to your address soon","",300, 200, 400, 30);//product purchase dtails like adress and total
-		setLabel(mainPanel, "", "res\\BoughtCOD.png", 0, 0, 1000, 600);//bg
+		setLabel("paymentdetails",mainPanel,/*name*/" your product will be delivered to "/*+shopaddress*/+"soon.","",350, 230, 300, 30);//coddetails
+		setLabel("paymentdetails",mainPanel,"Please have "/*+total*/+" tk at ready.","",300, 250, 400, 30);//coddetails
+		setLabel("menu",mainPanel,"","",405, 285, 170, 30);//go to menu
+		setLabel("bg",mainPanel, "", "res\\BoughtCOD.png", 0, 0, 1000, 600);//bg
 
 
 		this.setVisible(true);
 	}
 
 
-	public void setLabel(JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
+	public void setLabel(String selectedLabel,JPanel setPanel,String setText,String imageDirectory,int x_axis,int y_axis,int width,int height) {
 		JLabel jlabel=new JLabel(new ImageIcon(imageDirectory));
 		jlabel.setText(setText);
         jlabel.addMouseListener(new MouseAdapter() {
@@ -52,10 +38,10 @@ public class BoughtCOD extends JFrame{
             public void mouseClicked(MouseEvent e) {
 		            
 	
-		            	if(setText.equals("")){
-		                    dispose();
-		                    new Menu();
-		            	}
+            	if(selectedLabel.equals("menu")){
+                    dispose();
+                    new Menu();
+            	}
 	
             }
             @Override
@@ -91,7 +77,7 @@ public class BoughtCOD extends JFrame{
 	}
 	
 	public void createFrame(String setTitle,int x_axis,int y_axis,int width,int height) {
-		 	setTitle("Bought by COD");
+		 	setTitle(setTitle);
 	        setSize(new Dimension(width,height));
 	        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	        setResizable(false);
