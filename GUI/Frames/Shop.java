@@ -27,7 +27,7 @@ import GUI.ButtonDesigner;
 
 public class Shop extends JFrame{
 	
-	private JPanel mainPanel,productPanel, viewDetailsPanel;
+	private JPanel mainPanel,productPanel, viewDetailsPanel, circlePanel;
 	private JTextField searchField;
 	private ArrayList<Product> cart = new ArrayList<>();
 	private ArrayList<Product> products = Main.ProductsDatabase.getAllProducts();
@@ -44,13 +44,28 @@ public class Shop extends JFrame{
 		createFrame("Shopping",0,0,1016,638);
 		initializeShopComponents();
 
-		// Create the notification label and add it to the circle panel
-		notificationLabel = new JLabel("0");
-		notificationLabel.setFont(new Font("Arial", Font.BOLD, 16));
-		notificationLabel.setBounds(710, 40, 20, 20);
-		notificationLabel.setForeground(new Color(255, 10, 10));
+		// Create the red filled circle panel
+		circlePanel = new JPanel() {
+			@Override
+			protected void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				g.setColor(Color.RED);
+				g.fillOval(0, 0, 20, 20);
+			}
+		};
+		circlePanel.setLayout(new BorderLayout());
 
-		mainPanel.add(notificationLabel);
+		// Create the notification label and add it to the circle panel
+		notificationLabel = new JLabel("10");
+		notificationLabel.setForeground(Color.WHITE);
+		notificationLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		notificationLabel.setVerticalAlignment(SwingConstants.CENTER);
+		circlePanel.setBounds(710, 45, 20, 20);
+		circlePanel.add(notificationLabel, BorderLayout.CENTER);
+		circlePanel.setOpaque(true);
+		circlePanel.setBackground(new Color(0, 0, 0, 0));
+
+		mainPanel.add(circlePanel);
 
 		mainPanel.add(searchField);
 		//setLabel(mainPanel,"signout","",802,48,160,43);//signout
@@ -359,9 +374,22 @@ public class Shop extends JFrame{
 	private void notifyUser() {
 		//rounded red box shape
 		// Create the red filled circle panel
-		notificationLabel.setText(Integer.toString(cart.size()));
 
-		System.out.println("cart size: " + Integer.toString(cart.size()));
+
+		int count = Main.CartDatabase.getCart().size();
+
+		System.out.println("cart size: " + Integer.toString(count));
+
+		if (count > 0 && circlePanel != null){
+			mainPanel.repaint();
+			circlePanel.setVisible(true);
+		}else{
+			circlePanel.setVisible(false);
+		}
+
+		notificationLabel.setText(Integer.toString(count));
+
+		System.out.println("cart size: " + Integer.toString(count));
 	}
 	 
 	 public void readExistingCart(){

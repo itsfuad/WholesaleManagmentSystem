@@ -167,6 +167,11 @@ public class Database {
         ArrayList<Product> products = new ArrayList<Product>();
 
         for (String line : this.data) {
+
+            if (line.equals("")) {
+                continue;
+            }
+
             String[] parts = line.split(",");
             String id = parts[0];
             String name = parts[1];
@@ -217,6 +222,9 @@ public class Database {
     public boolean match(String query) {
         read();
 
+        if (query.equals("")) {
+            return false;
+        }
         String[] queries = query.split(",");
 
         final int yetToMatch = queries.length;
@@ -251,6 +259,11 @@ public class Database {
      * @return The query result
      */
     public String getQueryResult(String PrimaryKey, String QueryKey) {
+
+        if (PrimaryKey.equals("") || QueryKey.equals("")) {
+            return "";
+        }
+
         read();
 
         String[] lines = new String[this.data.size()];
@@ -292,6 +305,11 @@ public class Database {
      * @param QueryValue The new value
      */
     public void update(String PrimaryKey, String QueryKey, String QueryValue) {
+
+        if (PrimaryKey.equals("") || QueryKey.equals("") || QueryValue.equals("")) {
+            return;
+        }
+
         read();
 
         String[] lines = new String[this.data.size()];
@@ -343,6 +361,12 @@ public class Database {
      * @return
      */
     public ArrayList<Product> getProducts(String productName) {
+
+
+        if (productName.equals("")) {
+            return new ArrayList<Product>();
+        }
+
         read();
 
         productName = productName.toLowerCase();
@@ -361,15 +385,14 @@ public class Database {
 
                 String id = lineParts[0];
                 String name = lineParts[1];
-                String price = lineParts[2];
-                String quantity = lineParts[3];
+                String price = lineParts[3];
                 String manufacturer = lineParts[4];
                 String manufactureDate = lineParts[5];
                 String expiryDate = lineParts[6];
 
                 //System.out.println("Product name: " + nameParts[1]);
 
-                Product prod = new Product(id.split("=")[1], name.split("=")[1], price.split("=")[1], quantity.split("=")[1],  manufacturer.split("=")[1], manufactureDate.split("=")[1], expiryDate.split("=")[1]);
+                Product prod = new Product(id.split("=")[1], name.split("=")[1], price.split("=")[1], "1",  manufacturer.split("=")[1], manufactureDate.split("=")[1], expiryDate.split("=")[1]);
                 products.add(prod);
             }
         }

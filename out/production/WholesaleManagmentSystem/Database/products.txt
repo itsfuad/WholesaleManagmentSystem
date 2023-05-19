@@ -1,0 +1,40 @@
+productId=0001,productName=ACI Fresh Salt,productCategory=Salt,productPrice=65,manufacturer=ACI food company,manufactureDate=22.5.2023,expireDate=1 year
+productId=0002,productName=Fresh Salt,productCategory=Salt,productPrice=60,manufacturer=Fresh food company,manufactureDate=10.5.2023,expireDate=1 day
+productId=0003,productName=Pran Frooto Juice,productCategory=Juice,productPrice=25,manufacturer=Pran Group,manufactureDate=14.5.2023,expireDate=6 months
+productId=0004,productName=Ispahani Mirzapore Tea,productCategory=Tea,productPrice=210,manufacturer=Ispahani Tea Limited,manufactureDate=10.5.2023,expireDate=2 years
+productId=0005,productName=Nestle Nido Milk Powder,productCategory=Milk Powder,productPrice=1080,manufacturer=Nestle Bangladesh Ltd.,manufactureDate=1.5.2023,expireDate=1 year
+productId=0006,productName=Pran Miniket Rice,productCategory=Rice,productPrice=69,manufacturer=Pran Group,manufactureDate=12.5.2023,expireDate=1 year
+productId=0007,productName=Pepsi Soft Drink,productCategory=Soft Drink,productPrice=40,manufacturer=PepsiCo,manufactureDate=9.5.2023,expireDate=6 months
+productId=0008,productName=Square Toiletries Soap,productCategory=Soap,productPrice=30,manufacturer=Square Toiletries Ltd.,manufactureDate=8.5.2023,expireDate=2 years
+productId=0009,productName=Kazi Farmas Honey,productCategory=Honey,productPrice=340,manufacturer=Kazi Farms Group,manufactureDate=6.5.2023,expireDate=1 year
+productId=0010,productName=Unilever Lifebuoy Soap,productCategory=Soap,productPrice=35,manufacturer=Unilever Bangladesh Ltd.,manufactureDate=11.5.2023,expireDate=2 years
+productId=0011,productName=Danish Condensed Milk,productCategory=Condensed Milk,productPrice=85,manufacturer=Danish Dairy Limited,manufactureDate=13.5.2023,expireDate=1 year
+productId=0012,productName=Radhuni Garam Masala,productCategory=Spice,productPrice=60,manufacturer=Square Consumer Products Limited,manufactureDate=7.5.2023,expireDate=2 years
+productId=0013,productName=Pran Tomato Ketchup,productCategory=Ketchup,productPrice=75,manufacturer=Pran Group,manufactureDate=15.5.2023,expireDate=1 year
+productId=0014,productName=Fresh Atta,productCategory=Flour,productPrice=52,manufacturer=Fresh food company,manufactureDate=16.5.2023,expireDate=1 year
+productId=0015,productName=ACI Pure Soyabean Oil,productCategory=Cooking Oil,productPrice=120,manufacturer=ACI Limited,manufactureDate=18.5.2023,expireDate=2 years
+productId=0016,productName=Roxy Pen,productCategory=Stationery,productPrice=10,manufacturer=Roxy Writing Instruments Ltd.,manufactureDate=20.5.2023,expireDate=N/A
+productId=0017,productName=Dabur Amla Hair Oil,productCategory=Hair Oil,productPrice=160,manufacturer=Dabur Bangladesh Ltd.,manufactureDate=21.5.2023,expireDate=3 years
+productId=0018,productName=P&G Tide Detergent Powder,productCategory=Detergent,productPrice=95,manufacturer=P&G Bangladesh Ltd.,manufactureDate=23.5.2023,expireDate=2 years
+productId=0019,productName=Keya Chicken Masala,productCategory=Spice,productPrice=45,manufacturer=Keya Agro Process Ltd.,manufactureDate=25.5.2023,expireDate=2 years
+productId=0020,productName=Square Pharmaceuticals Paracetamol,productCategory=Medicine,productPrice=30,manufacturer=Square Pharmaceuticals Ltd.,manufactureDate=26.5.2023,expireDate=3 years
+productId=0021,productName=Maggi Noodles,productCategory=Noodles,productPrice=12,manufacturer=Nestle Bangladesh Ltd.,manufactureDate=27.5.2023,expireDate=1 year
+productId=0022,productName=Pran Peanut Butter,productCategory=Peanut Butter,productPrice=110,manufacturer=Pran Group,manufactureDate=29.5.2023,expireDate=1 year
+productId=0023,productName=Unilever Lux Soap,productCategory=Soap,productPrice=30,manufacturer=Unilever Bangladesh Ltd.,manufactureDate=31.5.2023,expireDate=2 years
+productId=0024,productName=ACI Savlon Antiseptic Liquid,productCategory=Antiseptic,productPrice=90,manufacturer=ACI Limited,manufactureDate=2.6.2023,expireDate=3 years
+productId=0025,productName=Bashundhara Toilet Tissue,productCategory=Toilet Tissue,productPrice=55,manufacturer=Bashundhara Group,manufactureDate=3.6.2023,expireDate=N/A
+productId=0026,productName=PepsiCo Lay's Chips,productCategory=Chips,productPrice=35,manufacturer=PepsiCo,manufactureDate=5.6.2023,expireDate=6 months
+productId=0027,productName=ACI Pure Mustard Oil,productCategory=Cooking Oil,productPrice=105,manufacturer=ACI Limited,manufactureDate=7.6.2023,expireDate=2 years
+productId=0028,productName=Danish Butter Cookies,productCategory=Cookies,productPrice=150,manufacturer=Danish Foods Limited,manufactureDate=9.6.2023,expireDate=1 year
+productId=0029,productName=Radhuni Curry Powder,productCategory=Spice,productPrice=40,manufacturer=Square Consumer Products Limited,manufactureDate=11.6.2023,expireDate=2 years
+productId=0030,productName=Pran Mixed Fruit Jam,productCategory=Jam,productPrice=70,manufacturer=Pran Group,manufactureDate=13.6.2023,expireDate=1 year
+productId=0031,productName=Aarong Dairy Milk,productCategory=Milk,productPrice=55,manufacturer=Aarong Dairy,manufactureDate=15.6.2023,expireDate=1 week
+productId=0032,productName=ACI Pure Salt,productCategory=Salt,productPrice=40,manufacturer=ACI Limited,manufactureDate=17.6.2023,expireDate=2 years
+productId=0033,productName=Nestle Maggi Masala,productCategory=Spice,productPrice=20,manufacturer=Nestle Bangladesh Ltd.,manufactureDate=19.6.2023,expireDate=1 year
+productId=0034,productName=Pran Pineapple Juice,productCategory=Juice,productPrice=30,manufacturer=Pran Group,manufactureDate=21.6.2023,expireDate=6 months
+productId=0035,productName=Roxy Ball Pen,productCategory=Stationery,productPrice=15,manufacturer=Roxy Writing Instruments Ltd.,manufactureDate=23.6.2023,expireDate=N/A
+productId=0036,productName=Keya Cumin Powder,productCategory=Spice,productPrice=50,manufacturer=Keya Agro Process Ltd.,manufactureDate=25.6.2023,expireDate=2 years
+productId=0037,productName=Globe Pharmaceuticals Paracetamol,productCategory=Medicine,productPrice=25,manufacturer=Globe Pharmaceuticals Ltd.,manufactureDate=27.6.2023,expireDate=3 years
+productId=0038,productName=Pran Orange Drink,productCategory=Soft Drink,productPrice=35,manufacturer=Pran Group,manufactureDate=29.6.2023,expireDate=6 months
+productId=0039,productName=Dabur Vatika Hair Oil,productCategory=Hair Oil,productPrice=180,manufacturer=Dabur Bangladesh Ltd.,manufactureDate=1.7.2023,expireDate=3 years
+productId=0040,productName=P&G Ariel Detergent Powder,productCategory=Detergent,productPrice=110,manufacturer=P&G Bangladesh Ltd.,manufactureDate=1.4.2023,expireDate=2 years

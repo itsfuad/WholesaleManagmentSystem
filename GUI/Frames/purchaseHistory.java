@@ -48,6 +48,7 @@ public class purchaseHistory extends JFrame{
             purchasedItems = Main.purchaseHistoryDatabase.getCart();
 
             for (Product p : purchasedItems) {
+
                 System.out.println("Product ID: " + p.productID);
                 System.out.println("Product Name: " + p.productName);
                 System.out.println("Product Price: " + p.productPrice);
