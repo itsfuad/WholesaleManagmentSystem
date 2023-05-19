@@ -77,7 +77,7 @@ public class Login extends JFrame {
         jtextfield.setBounds(415, 260, 214, 29);
         jpanel.add(jtextfield);
         jtextfield.setColumns(10);
-        jlabel1.setBounds(455, 392, 118, 29);
+        jlabel1.setBounds(400, 385, 70, 30);
         jpanel.add(jlabel1);
 
         jlabel2 = new JLabel("");
@@ -119,7 +119,7 @@ public class Login extends JFrame {
             public void mouseReleased(MouseEvent e) {
             }
         });
-        jlabel2.setBounds(586, 392, 70, 29);
+        jlabel2.setBounds(535, 385, 70, 30);
         jpanel.add(jlabel2);
 
         jpasswordfield = new JPasswordField();
